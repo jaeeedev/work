@@ -166,6 +166,7 @@ button {
 .side_bar .craft ul {
   padding: 0;
   height: 0;
+  overflow: hidden;
 }
 
 .craft ul li a {
@@ -280,6 +281,9 @@ button {
     display: block;
   }
   .header {
+    display: none;
+  }
+  .side_bar {
     display: none;
   }
 }

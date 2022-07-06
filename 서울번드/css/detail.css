@@ -1,0 +1,135 @@
+.pd_img {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.pd_img img {
+  width: 100%;
+  display: block;
+}
+
+.order_box {
+    padding: 0 20px;
+}
+
+.order_title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+}
+
+.order_option_option {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.pick_color {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.order_option_title {
+    padding: 5px 0;
+    width: 80px;
+}
+
+.order_option_content select {
+    padding: 5px;
+}
+
+/* 디테일 */
+.nav_bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav_bar div {
+    padding: 5px;
+}
+
+.nav_bar {
+    border-bottom: 1px solid #ccc;
+}
+
+.nav_bar .go_review {
+    display: flex;
+}
+
+.go_review span {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background: var(--green);
+    border-radius: 50%;
+    color: white;
+    font-size: 12px;
+}
+
+.item_info {
+    display: flex;
+    justify-content: space-between;
+}
+.item_name {
+    font-size: 15px;
+}
+.item_option {
+    font-size: 13px;
+    color: #999;
+}
+.delete_item {
+    cursor: pointer;
+}
+
+.quantity_change button {
+    background: transparent;
+    border: none;
+    font-size: 17px;
+    color: #999;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.current_quantity {
+    display: inline-block;
+    padding: 3px 10px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.total_price_box {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.totle_price {
+    font-size: 17px;
+    font-weight:700;
+    color: var(--green)
+}
+
+@media all and (min-width: 601px) {
+    .order_section {
+        margin: 60px auto;
+        display: flex;
+        gap: 50px;
+    }
+    
+    .pd_img {
+    flex:1;
+    }
+
+    .order_box {
+        flex:1;
+    }
+}
+@media all and (min-width: 769px) {
+}
+@media all and (min-width: 1025px) {
+}
+}
+@media all and (min-width: 1261px) {
+}
