@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEOUL BUND</title>
+    <script
+      src="https://kit.fontawesome.com/7cde33c3cd.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/sub.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="inner_header">
+        <h1><a href="../index.html">SEOUL BUND</a></h1>
+        <div class="menus">
+          <div class="header_search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <div class="header_cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+          <label class="header_bar" for="side_btn"><i class="fa-solid fa-bars"></i></div>
+          </label>
+      </div>
+    </header>
+    <input type="checkbox" id="side_btn" class="side_btn"/>
+    <nav class="side_bar">
+        <ul class="depth_1">
+            <li><a href="#!">베스트</a></li>
+            <input type="checkbox" id="store_input" class="store_input">
+            <li class="store"><label for="store_input">스토어
+                <span class="sub_exist_icon on"><i class="fa-solid fa-angle-down"></i></span>
+                <span class="sub_exist_icon off"><i class="fa-solid fa-angle-up"></i></span>
+            </label>
+            
+            <ul class="depth_2">
+                <li><a href="#!">신제품</a></li>
+                <li>선물추천
+                <ul class="depth_3">
+                    <li><a href="#!">모두보기</a></li>
+                    <li><a href="#!">~5만원</a></li>
+                    <li><a href="#!">~10만원</a></li>
+                    <li><a href="#!">~20만원</a></li>
+                    <li><a href="#!">20만원~</a></li>
+                </ul>
+                </li>
+                <li>테이블웨어
+                <ul class="depth_3">
+                    <li><a href="#!">모두보기</a></li>
+                    <li><a href="#!">공기/대접</a></li>
+                    <li><a href="#!">종지/찬기</a></li>
+                    <li><a href="#!">면기</a></li>
+                    <li><a href="#!">플레이트</a></li>
+                </ul>
+                </li>
+                <li>음료용품
+                <ul class="depth_3">
+                    <li><a href="#!">모두보기</a></li>
+                    <li><a href="#!">컵/머그/잔</a></li>
+                    <li><a href="#!">유리잔</a></li>
+                    <li><a href="#!">다도용품</a></li>
+                </ul></li>
+                <li>조리용품
+                    <ul class="depth_3">
+                        <li><a href="#!">모두보기</a></li>
+                        <li><a href="#!">냄비</a></li>
+                        <li><a href="#!">스티머</a></li>
+                        <li><a href="#!">프라이팬/그릴</a></li>
+                    </ul>
+                </li>
+                <li>홈데코
+                    <ul class="depth_3">
+                        <li><a href="#!">모두보기</a></li>
+                        <li><a href="#!">캔들/디퓨저/인센스</a></li>
+                        <li><a href="#!">화병</a></li>
+                    </ul>
+                </li>
+            </ul>
+            </li>
+            <input type="checkbox" id="craft_input" class="craft_input">
+            <li class="craft"><label for="craft_input">공예
+                <span class="sub_exist_icon on"><i class="fa-solid fa-angle-down"></i></span>
+                <span class="sub_exist_icon off"><i class="fa-solid fa-angle-up"></i></span>
+            </label>
+                <ul>
+                    <li><a href="#!">
+                        공예 모두보기
+                    </a></li>
+                    <li><a href="#!">
+                        공예 작가
+                    </a></li>
+                    <li><a href="#!">
+                        공예 작가 인터뷰
+                    </a></li>
+                </ul>
+            </li>
+            <li><a href="#!">프로젝트</a></li>
+            <li><a href="#!">로그인</a></li>
+            <li><a href="#!">
+                <span>KR</span>
+                <span>EN</span>
+            </a></li>
+        </ul>
+        
+    </nav>
+
+    <header class="pc_header">
+      <div class="inner_pc_header">
+        <h1><a href="../index.html">SEOUL BUND</a></h1>
+
+        <ul class="menus">
+          <li>
+            <a href="#!">베스트</a>
+          </li>
+          <li>
+            <a href="#!">스토어</a>
+          </li>
+          <li><a href="#!">공예</a></li>
+          <li><a href="#!">프로젝트</a></li>
+        </ul>
+
+        <ul class="tools">
+          <li><i class="fa-solid fa-magnifying-glass"></i></li>
+          <li>
+            <a href="#!"><i class="fa-solid fa-cart-shopping"></i></a>
+            <div class="badge"><span class="badge_count"></span></div>
+          </li>
+        </ul>
+
+        <div class="gnb">
+          <span><a href="#!">로그인</a></span>
+          <div class="lang">
+            <ul class="select_lang">
+              <span>KR</span>
+              <li>KR</li>
+              <li>EN</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="cart">
+      <h2>장바구니</h2>
+      <label for="check_all" class="check_all_label"
+        >전체 선택 <input type="checkbox" id="check_all"
+      /></label>
+      <hr />
+      <div class="pc_divide">
+        <div class="mobile_wrap">
+          <div class="item_box">
+            <input type="checkbox" />
+            <div class="item_detail">
+              <div class="img_box">
+                <img src="" alt="" />
+              </div>
+              <div class="text_box">
+                <div class="title_box">
+                  <h4><a href="#!">[더블유와이유] 버블컵 2단 (4 colors)</a></h4>
+                  <button class="cancel"><i class="fa-solid fa-x"></i></button>
+                  <span class="option">[옵션: 엠버]</span>
+                </div>
+                <div class="price_box">
+                  <div class="price_calc">
+                    <button class="substract">-</button><span class="product_quantity">1</span>
+                    <button class="plus">+</button>
+                  </div>
+                  <span class="product_price">28000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item_box">
+            <input type="checkbox" />
+            <div class="item_detail">
+              <div class="img_box">
+                <img src="" alt="" />
+              </div>
+              <div class="text_box">
+                <div class="title_box">
+                  <h4><a href="#!">[더블유와이유] 버블컵 2단 (4 colors)</a></h4>
+                  <button class="cancel"><i class="fa-solid fa-x"></i></button>
+                  <span class="option">[옵션: 엠버]</span>
+                </div>
+                <div class="price_box">
+                  <div class="price_calc">
+                    <button class="substract">-</button><span class="product_quantity">1</span>
+                    <button class="plus">+</button>
+                  </div>
+                  <span class="product_price">28000</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="whole_price">
+            <div>
+              <span class="whole_price_title">총 상품금액</span
+              ><span class="whole_price_price">84,000</span>
+            </div>
+            <div>
+              <span class="whole_price_title">배송비</span
+              ><span class="shipping_price">4,000</span>
+            </div>
+            <hr />
+            <div class="total_box">
+              <span class="whole_price_title">결제예정금액</span
+              ><span class="total_price">88,000</span>
+            </div>
+            <div class="price_btns">
+              <button class="buy_pick">선택상품구매</button>
+              <button class="buy_all">전체상품구매</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pc_bill">
+          <div class="bill_calc">
+            <div class="bill_total">
+              <span>총 상품금액</span>
+              <div class="total_number">
+                <span>28,000</span>
+                <span>+ 4000</span>
+              </div>
+            </div>
+            <div class="bill_expected">
+              <div>결제 예정 금액</div>
+              <span>32,000</span>
+            </div>
+          </div>
+          <button class="buy_immd">바로구매</button>
+          <div class="go_back">쇼핑 계속하기</div>
+        </div>
+      </div>
+    </section>
+    <script src="../js/sub.js"></script>
+  </body>
+</html>

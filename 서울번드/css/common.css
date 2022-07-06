@@ -1,0 +1,285 @@
+/* 초기화, 헤더, 푸터 */
+
+@font-face {
+  font-family: "GowunDodum-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Arita-dotum-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+/* * {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+    "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+} */
+
+:root {
+  --green: #2f6d68;
+  --ivory: #f1eee6;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arita-dotum-Medium";
+  color: #333;
+  scroll-behavior: smooth;
+  height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+button {
+  font-family: "Arita-dotum-Medium";
+}
+
+.inner_container {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* 모바일 헤더 */
+
+.header {
+  background: var(--green);
+  color: white;
+}
+
+.inner_header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inner_header h1 a {
+  color: white;
+  font-size: 20px;
+}
+
+.menus {
+  display: flex;
+  gap: 10px;
+  font-size: 16px;
+}
+
+/* 모바일 사이드 메뉴 */
+
+.side_btn {
+  display: none;
+}
+
+.side_btn:checked ~ .side_bar {
+  z-index: 11;
+  opacity: 1;
+}
+.side_btn:checked ~ .side_bar ul {
+  transform: translateX(0);
+}
+
+.side_bar {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.5s;
+  z-index: -1;
+  opacity: 0;
+}
+
+.side_bar input {
+  display: none;
+}
+
+.side_bar ul {
+  height: 100%;
+  width: 80%;
+  overflow-y: auto;
+  background: white;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: all 0.5s;
+}
+
+.depth_1 > li {
+  font-weight: 700;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.store label {
+  display: block;
+  cursor: pointer;
+}
+
+.craft label {
+  display: block;
+  cursor: pointer;
+}
+
+.depth_2 li {
+  font-weight: 400;
+  padding: 4px;
+  font-size: 15px;
+}
+
+.store li:first-child {
+  margin-top: 10px;
+}
+
+.side_bar .depth_3 {
+  padding: 10px;
+}
+
+.depth_3 li a {
+  font-size: 14px;
+}
+
+.depth_3 li a:hover {
+  color: #999;
+}
+
+.side_bar .craft ul {
+  padding: 0;
+  height: 0;
+}
+
+.craft ul li a {
+  padding: 4px;
+  font-size: 15px;
+  font-weight: 400;
+}
+.craft li:first-child {
+  margin-top: 10px;
+}
+
+.sub_exist_icon {
+  color: #666;
+  margin-left: 10px;
+}
+
+.store .depth_2 {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+  padding: 0;
+}
+
+.sub_exist_icon.off {
+  display: none;
+  overflow: hidden;
+}
+
+.store_input:checked ~ .store .depth_2 {
+  height: 870px;
+}
+
+.store_input:checked ~ .store .sub_exist_icon.on {
+  display: none;
+}
+.store_input:checked ~ .store .sub_exist_icon.off {
+  display: inline-block;
+}
+
+.craft_input:checked ~ .craft ul {
+  height: 100px;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+
+/* pc 피시 헤더 */
+.pc_header {
+  background: var(--green);
+  display: none;
+}
+
+.inner_pc_header {
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.pc_header h1 a {
+  color: white;
+  font-size: 20px;
+}
+
+.pc_header .menus {
+  display: flex;
+  flex: 5;
+  margin-right: 50px;
+}
+
+.pc_header .menus li {
+  width: 25%;
+}
+
+.pc_header .menus a {
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.tools {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+
+.tools i {
+  color: white;
+}
+
+.gnb {
+  display: flex;
+  gap: 10px;
+}
+
+.gnb,
+.gnb a {
+  color: white;
+}
+
+.lang .select_lang {
+  height: 20px;
+  overflow: hidden;
+}
+
+@media all and (min-width: 769px) {
+}
+@media all and (min-width: 1025px) {
+  .pc_header {
+    display: block;
+  }
+  .header {
+    display: none;
+  }
+}
