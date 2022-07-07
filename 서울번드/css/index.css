@@ -7,92 +7,68 @@ body {
 
 /* 메인 슬라이드 */
 
-.main_slide .swiper {
-  width: 100%;
+.main {
+  margin-bottom: 60px;
 }
 
-.main_img_box {
+.swiper1 {
+  width: 100%;
+  position: relative;
+}
+
+.slide_img {
   width: 100%;
   overflow: hidden;
 }
 
-.main_img_box img {
+.slide_img img {
   width: 100%;
   display: block;
 }
-.main_slide {
-  margin-bottom: 60px;
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #333 !important;
 }
 
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #333;
+}
 /* 이달의 */
 
-.product_toggle {
-  margin-bottom: 60px;
-}
-
-.product_toggle h2,
-.product_toggle span {
+.product_toggle h2 {
   text-align: center;
   font-family: "GowunDodum-Regular";
-  font-size: 18px;
+  font-size: 20px;
   margin-bottom: 10px;
-}
-
-.product_toggle .swiper {
-  margin: 0 50px;
-}
-
-.product_toggle .swiper-slide {
-  background: transparent;
 }
 
 .product_btns {
-  width: fit-content;
-  margin: 0 auto;
-  margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .product_btns button {
-  height: 30px;
-  border-radius: 1rem;
-  outline: none;
+  border: none;
+  padding: 10px 30px;
+  background: white;
   border: 1px solid #333;
-  background: transparent;
-  padding: 0 20px;
+  border-radius: 2rem;
+  cursor: pointer;
 }
 
-.product_btns .active {
-  background: var(--ivory);
+.swiper2 {
+  position: relative;
 }
 
-.product_text h3,
-.product_text span {
-  font-size: 13px;
-}
-.product_img {
-  background: #333;
-  width: 120px;
-  margin: 0 auto;
-  height: 150px;
-  margin-bottom: 10px;
+.product_toggle .swiper-slide {
+  width: 100%;
   overflow: hidden;
 }
 
-.product_img img {
+.product_toggle .swiper-slide img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product_text {
-  width: 70%;
-  margin: 0 auto;
-}
-
-.product_text h3 {
-  padding-bottom: 7px;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 3px;
+  display: block;
 }
 
 /*  이벤트 */
@@ -144,7 +120,7 @@ body {
 
 .project h2 {
   font-family: "GowunDodum-Regular";
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -264,6 +240,8 @@ body {
 }
 
 .long_artist_pic {
+  position: relative;
+  z-index: 1;
   width: 100%;
   overflow: hidden;
 }
@@ -273,6 +251,7 @@ body {
 
 .artist_bg {
   position: relative;
+  top: -10px;
 }
 
 .artist_bg > img {
@@ -429,4 +408,12 @@ body {
 
 .wellness_slide {
   margin: 0 auto;
+}
+
+/* 푸터 */
+.footer_bottom {
+  background: #333;
+  color: #999;
+  text-align: center;
+  padding: 20px 0;
 }

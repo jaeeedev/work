@@ -14,3 +14,32 @@ artistProducts.forEach((el) =>
     document.querySelector(".artist_bg img").src = imgUrl;
   })
 );
+
+const swiper = new Swiper(".swiper1", {
+  loop: true,
+  autoplay: true,
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: ".swiper-scrollbar",
+  },
+});
+
+new Swiper(".swiper2", {
+  loop: true,
+  slidesPerView: 2,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
