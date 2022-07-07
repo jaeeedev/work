@@ -21,3 +21,16 @@ const quantityChange = (e) => {
   }
 };
 quantityChangeBox.addEventListener("click", quantityChange);
+
+const openBtn = document.querySelector(".open");
+openBtn.addEventListener("click", () => {
+  document.querySelector(".detail_img").classList.toggle("on");
+});
+
+const writerName = document.querySelector(".writer_name");
+
+const lastString = writerName.textContent.charAt(
+  writerName.textContent.length - 1
+);
+
+writerName.textContent = writerName.textContent.replace(lastString, "*");

@@ -136,74 +136,112 @@ body {
   border-bottom: 1px solid white;
 }
 
-/*  주방 */
+/*  프로젝트  */
 
-.kitchen_toggle {
-  margin-bottom: 100px;
+.project {
+  margin-bottom: 60px;
 }
 
-.kitchen_toggle h2 {
-  text-align: center;
+.project h2 {
   font-family: "GowunDodum-Regular";
   font-size: 18px;
+  text-align: center;
   margin-bottom: 10px;
 }
 
-.kitchen_toggle .swiper {
-  margin: 0 50px;
+.project_title {
+  text-align: center;
 }
 
-.kitchen_toggle .swiper-slide {
-  background: transparent;
-}
-
-.kitchen_btns {
-  width: fit-content;
+.project_container {
+  position: relative;
+  width: 1000px;
   margin: 0 auto;
-  margin-bottom: 10px;
-}
-
-.kitchen_btns button {
-  height: 30px;
-  border-radius: 1rem;
-  outline: none;
-  border: 1px solid #333;
-  background: transparent;
-  padding: 0 20px;
-}
-
-.kitchen_btns .active {
-  background: var(--ivory);
-}
-
-.kitchen_text h3,
-.kitchen_text span {
-  font-size: 13px;
-}
-.kitchen_img {
-  background: #333;
-  width: 120px;
-  margin: 0 auto;
-  height: 150px;
-  margin-bottom: 10px;
   overflow: hidden;
 }
 
-.kitchen_img img {
+.project_title {
+  position: absolute;
+  width: 100%;
+  top: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.project_title span {
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.project_container:hover .inner_contents {
+  opacity: 1;
+}
+
+.inner_contents {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s;
+}
+
+.inner_contents .content {
+  flex: 1;
+  height: calc(300px * 1.25);
+  background: rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  position: relative;
+}
+
+.inner_contents .content:hover .content_cover {
+  opacity: 1;
+}
+
+.content_cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  left: 0;
+  top: 0;
+  color: white;
+  opacity: 0;
+  transition: all 0.3s;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  font-size: 17px;
+}
+
+.inner_contents .content img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.kitchen_text {
-  width: 70%;
-  margin: 0 auto;
+.project_container img {
+  width: 100%;
 }
 
-.kitchen_text h3 {
-  padding-bottom: 7px;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 3px;
+.more {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  padding: 5px;
+  border-bottom: 1px solid #333;
 }
 
 /*  작가  */
@@ -253,6 +291,7 @@ body {
   z-index: 1;
   top: 20px;
   left: 20px;
+  cursor: pointer;
 }
 .artist_bg .artist_pd:nth-child(2) {
   top: 40%;
@@ -298,7 +337,22 @@ body {
 }
 @media all and (min-width: 601px) {
 }
+@media all and (min-width: 769px) {
+  .mobile_artist {
+    display: none;
+  }
+}
 @media all and (min-width: 1025px) {
+  .project {
+    max-width: 1260px;
+    margin: 0 auto;
+  }
+
+  .project h2 {
+    font-family: "GowunDodum-Regular";
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
 }
 
 /* 번더의 취향 */

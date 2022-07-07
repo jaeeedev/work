@@ -140,10 +140,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translateY(2px);
+  background: white;
+  border-bottom: 1px solid #ccc;
 }
 
-.nav_bar div {
-  padding: 5px;
+.nav_bar div a {
+  padding: 7px 15px;
+  font-size: 14px;
 }
 
 .nav_bar {
@@ -156,22 +160,36 @@
 
 .go_review span {
   display: inline-block;
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
   background: var(--green);
   border-radius: 50%;
   color: white;
-  font-size: 12px;
+  font-size: 11px;
+  text-align: center;
+  line-height: 17px;
+  margin-left: 2px;
 }
 
-.detail_content {
+.detail_img {
   width: 100%;
+  height: 200px;
   overflow: hidden;
+  transition: all 0.4s;
+}
+
+.detail_img.on {
+  height: 400px;
 }
 
 .detail_content img {
   width: 100%;
   display: block;
+}
+
+.nav_bar div.on {
+  border-bottom: 2px solid var(--green);
+  transform: translateY(2px);
 }
 
 .open {
@@ -181,6 +199,69 @@
   color: white;
   background: var(--green);
   cursor: pointer;
+}
+
+/* 후기 */
+
+.total_rate {
+  margin: 10px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.rate_title {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.rate_number {
+  font-weight: 700;
+}
+
+.rate_amount {
+  font-size: 13px;
+}
+
+.rate_amount::before {
+  content: "(총 ";
+}
+
+.rate_amount::after {
+  content: "개의 리뷰)";
+}
+
+.write_review {
+  display: block;
+  padding: 10px 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  background: #333;
+  color: white;
+}
+
+.review_box {
+  padding-bottom: 10px;
+  margin: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.review_writer {
+  margin-bottom: 20px;
+}
+
+.writer_name_title {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.writer_name {
+  font-size: 14px;
+}
+
+.review_img img {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
 }
 
 @media all and (min-width: 601px) {
