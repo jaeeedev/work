@@ -39,7 +39,7 @@ body {
   font-family: "Arita-dotum-Medium";
   color: #333;
   scroll-behavior: smooth;
-  height: 100vh;
+  height: 100%;
 }
 
 li {

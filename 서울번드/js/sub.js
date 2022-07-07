@@ -1,7 +1,10 @@
 const background = document.querySelector(".side_bar");
 
-background.addEventListener("click", () => {
+background.addEventListener("click", (e) => {
   const input = document.querySelector(".side_btn");
+  if (e.target !== e.currentTarget) return;
+  console.log(e.target);
+  console.log(e.currentTarget);
   input.click();
 });
 

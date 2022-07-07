@@ -159,15 +159,19 @@
             <div class="order_option">
                 <div class="order_option_option">
                 <div class="order_option_title"><span>판매가</span></div>
-                <div class="order_option_content"><span>67,500</span></div>
+                <div class="order_option_content"><span>28000</span></div>
             </div>
                 <div class="order_option_option pick_color">
                     <div class="order_option_title"><span>색상 선택</span></div>
-                    <div class="order_option_content"><select><option value="">- 필수 옵션을 선택해주세요 - </option></select></div>
+                    <div class="order_option_content"><select>
+                      <option value="">- 필수 옵션을 선택해주세요 - </option>
+                      <option value="" selected>오렌지</option>
+                      <option value="">핑크</option>
+                      <option value="">블루</option>
+                    </select></div>
                 </div>
                 <div class="order_option_option">
                 <div class="order_option_title"><span>구매 수량</span></div>
-                <div class="order_option_content"><button>-</button><span>1</span><button>+</button></div>
             </div>
             </div>
             <div class="total_box">
@@ -176,26 +180,26 @@
                     <div class="item_info">
                     <span class="item_option">- 오렌지</span>
                         <div>
-                    <span>28,000</span>
-                    <span class="delete_item">X</span>
+                    <span>28000</span>
+                    <span class="delete_item"><i class="fa-solid fa-xmark"></i></span>
                         </div>
                      </div>
                         <div class="quantity_change">
-                            <button>-</button>
-                            <span class="current_quantity">2</span>
-                            <button>+</button>
+                            <button class="quantity_substract">-</button>
+                            <input class="current_quantity" type="number" min="1" max="10" value="2"/>
+                            <button class="quantity_plus">+</button>
                         </div>                       
                 </div>
 
                 <div class="total_price_box">
                 <span class="total_title">총 상품금액</span>
-                <span class="totle_price">67500</span>
+                <span class="total_price">56000</span>
              </div>
             </div>
             <div class="order_btns">
-                <div class="order">구매하기</div>
-                <div><i class="fa-solid fa-cart-shopping"></i></div>
-                <div><i class="fa-solid fa-heart"></i></div>
+              <div><i class="fa-solid fa-heart"></i></div>
+              <div><i class="fa-solid fa-cart-shopping"></i></div>
+              <div class="order">구매하기</div>
             </div>
               </div>
         </div>
@@ -206,7 +210,7 @@
       <section class="detail" id="detail">
         <div class="nav_bar">
             <div class="go_detail"><a href="#detail">상품상세</a></div>
-            <div class="go_review"><a href="#review">상품후기</a><span>37</span></div>
+            <div class="go_review"><a href="#review">상품후기<span>37</span></a></div>
             <div class="go_qna"><a href="#qna">상품문의</a></div>
         </div>
         <div class="detail_content">
