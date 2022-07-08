@@ -14,6 +14,7 @@ body {
 .swiper1 {
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .slide_img {
@@ -36,10 +37,14 @@ body {
 }
 /* 이달의 */
 
+.product_toggle {
+  margin-bottom: 60px;
+}
+
 .product_toggle h2 {
   text-align: center;
   font-family: "GowunDodum-Regular";
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
@@ -48,17 +53,32 @@ body {
   margin-bottom: 30px;
 }
 
+.product_btns .active {
+  background: var(--ivory);
+}
+
 .product_btns button {
   border: none;
-  padding: 10px 30px;
+  padding: 8px 30px;
   background: white;
   border: 1px solid #333;
   border-radius: 2rem;
   cursor: pointer;
 }
 
-.swiper2 {
+.swiper_new,
+.swiper_best {
   position: relative;
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+.swiper-container {
+  display: none;
+}
+
+.swiper-container.active {
+  display: block;
 }
 
 .product_toggle .swiper-slide {
@@ -71,45 +91,60 @@ body {
   display: block;
 }
 
+.swiper-slide img {
+  margin-bottom: 10px;
+}
+
+.pd_name {
+  line-height: 1.4;
+  font-size: 13px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.pd_price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green);
+}
+
 /*  이벤트 */
 
 .events {
   margin-bottom: 60px;
 }
 
-.events .swiper-slide {
-  width: 100%;
-  height: 200px;
+.event_box a {
+  margin: 0 10px;
   display: flex;
-}
-
-.events .desc_box {
-  width: 40%;
-  background: var(--green);
-  padding: 10px;
-}
-
-.events .desc_box {
   color: white;
+  font-size: 10px;
+  background: var(--ivory);
+}
+
+.event_text_box {
+  flex: 1;
+  background: rgb(58, 46, 46);
+  padding: 25px 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.desc_box .title span {
-  font-family: "GowunDodum-Regular";
+.event_text_box .event_title {
   font-size: 16px;
+  font-family: "GowunDodum-Regular";
 }
 
-.desc_box .text {
-  font-size: 12px;
+.event_img_box {
+  flex: 2.2;
+  overflow: hidden;
 }
 
-.desc_box .text a {
-  margin-top: 10px;
-  color: white;
-  padding-bottom: 5px;
-  border-bottom: 1px solid white;
+.event_img_box img {
+  width: 100%;
+  display: block;
 }
 
 /*  프로젝트  */
@@ -120,7 +155,7 @@ body {
 
 .project h2 {
   font-family: "GowunDodum-Regular";
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -235,7 +270,7 @@ body {
 
 .artist p {
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 20px;
 }
 
@@ -254,6 +289,11 @@ body {
   top: -10px;
 }
 
+.mobile_artist {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
 .artist_bg > img {
   width: 100%;
   height: 100%;
@@ -263,8 +303,10 @@ body {
 }
 
 .artist_bg .artist_pd {
-  width: 30vw;
-  height: 37.5vw;
+  width: 32vw;
+  height: 40vw;
+  max-width: 140px;
+  max-height: 175px;
   overflow: hidden;
   position: absolute;
   z-index: 1;
@@ -314,35 +356,20 @@ body {
 .pd03:hover .artist_cover {
   opacity: 1;
 }
-@media all and (min-width: 601px) {
-}
-@media all and (min-width: 769px) {
-  .mobile_artist {
-    display: none;
-  }
-}
-@media all and (min-width: 1025px) {
-  .project {
-    max-width: 1260px;
-    margin: 0 auto;
-  }
 
-  .project h2 {
-    font-family: "GowunDodum-Regular";
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
+.project {
+  display: none;
 }
 
 /* 번더의 취향 */
 
 .taste {
-  margin-bottom: 60px auto;
+  margin-bottom: 60px;
 }
 
 .taste h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 18px;
   font-family: "GowunDodum-Regular";
 }
@@ -350,7 +377,7 @@ body {
 .taste_btns {
   width: fit-content;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .taste_btns button {
@@ -366,54 +393,543 @@ body {
   background: var(--ivory);
 }
 
-.category span {
-  display: block;
-  font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  /* font-family: Pretendard; */
-}
-
-.taste_img {
-  width: calc(100% - 80px);
-  margin: 0 auto;
+.taste .swiper-slide {
+  width: 100%;
   overflow: hidden;
 }
 
-.taste_img img {
-  display: block;
+.taste .swiper-slide img {
   width: 100%;
+  padding: 0 40px;
+  display: block;
+}
+
+.taste .swiper-button-prev::after,
+.taste .swiper-button-next::after {
+  font-size: 24px;
+}
+
+.swiper_wellness,
+.swiper_kitchen {
+  position: relative;
+  overflow: hidden;
 }
 
 .taste_text {
-  margin: 10px 40px;
+  padding: 0 40px;
 }
 
 .taste_text h4 {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 3px;
 }
 
 .taste_text p {
-  font-size: 13px;
-  font-weight: 400;
-}
-.taste_text .more {
   font-size: 12px;
-  color: #999;
-  display: inline-block;
-  margin-top: 10px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #999;
+  margin-bottom: 10px;
 }
 
-.wellness_slide {
+.taste_more {
+  display: inline-block;
+  color: #999;
+  font-size: 12px;
+  padding: 3px;
+  border-bottom: 1px solid #999;
+}
+.category_title {
+  font-weight: 700;
+  font-size: 11px;
+}
+
+/* 공지사항 */
+
+.notice {
+  margin-bottom: 60px;
+}
+
+.notice_box {
+  width: 90%;
   margin: 0 auto;
+  border: 1px solid #333;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.notice_title {
+  font-family: "GowunDodum-Regular";
+  font-size: 20px;
+  min-width: 90px;
+  display: flex;
+  align-items: center;
+}
+
+.notice_slide {
+  flex: 1;
+}
+
+.notice_slide .slide {
+  padding: 20px 0;
+}
+
+.notice_slide .slide a {
+  height: 20px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 20px;
+}
+
+.notice_slide .slide a span {
+  min-width: 19px;
+  font-size: 12px;
+}
+
+.notice_slide .slide p {
+  flex: 1;
+  font-size: 13px;
+  overflow: hidden;
+  width: 180px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* 푸터 */
+
+.footer {
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.footer_top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.footer_top div {
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.worktime {
+  border-right: 1px solid #ccc;
+}
+
+.worktime p {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #666;
+}
+
+.support span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.support_tel {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.support a {
+  width: 70%;
+  margin: 0 auto;
+  background: #333;
+  color: white;
+  margin-bottom: 5px;
+  line-height: 25px;
+  font-size: 11px;
+}
+
 .footer_bottom {
   background: #333;
   color: #999;
   text-align: center;
   padding: 20px 0;
+}
+
+.footer_sns {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  gap: 5px;
+}
+
+.footer_sns span a {
+  width: 23px;
+  height: 23px;
+  overflow: hidden;
+}
+
+.footer_sns span a img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.company_info_title {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.footer_bottom p {
+  font-size: 11px;
+}
+
+.pc_artist {
+  display: none;
+}
+.pc_taste {
+  display: none;
+}
+
+.pc_footer {
+  display: none;
+}
+
+@media all and (min-width: 601px) {
+  .product_toggle h2,
+  .artist h2,
+  .taste h2 {
+    font-size: 25px;
+  }
+
+  .pd_name {
+    font-size: 15px;
+  }
+  .pd_price {
+    font-size: 16px;
+  }
+
+  .event_box a {
+    flex-direction: row;
+  }
+
+  .artist > p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* 이벤트 */
+  .events .event_box {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  /* 취향 */
+
+  .taste .swiper-button-prev::after,
+  .taste .swiper-button-next::after {
+    font-size: 32px;
+  }
+
+  .category_title {
+    font-size: 15px;
+  }
+
+  .taste_text h4 {
+    font-size: 17px;
+  }
+
+  .taste_text p {
+    font-size: 15px;
+  }
+
+  .taste_more {
+    font-size: 15px;
+  }
+}
+@media all and (min-width: 769px) {
+  .mobile_artist {
+    display: none;
+  }
+
+  /* pc작가  */
+  .pc_artist {
+    display: block;
+  }
+
+  .pc_artist .inner_container {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .pc_artist_name {
+    display: block;
+    font-family: "GowunDodum-Regular";
+    font-size: 25px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  .artist_interview {
+    flex: 1;
+  }
+
+  .artist_interview p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .artist_product {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .artist_interview p {
+    text-align: start;
+  }
+
+  .artist_product div {
+    display: flex;
+    gap: 10px;
+  }
+
+  .row_pd {
+    width: 15vw;
+    height: calc(15vw * 1.25);
+    max-width: 180px;
+    max-height: calc(180px * 1.25);
+    background: #f3f3f3;
+    position: relative;
+  }
+
+  .row_pd:hover .row_pd_cover {
+    opacity: 1;
+  }
+
+  .row_pd img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .row_pd_cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.4); */
+    text-align: center;
+    padding: 7px;
+    opacity: 0;
+    transition: all 0.5s;
+    backdrop-filter: blur(3px);
+  }
+  .row_pd_cover a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* color: white; */
+    font-size: 14px;
+  }
+  .row_pd_name {
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .row_pd_more {
+    padding: 3px;
+    border-bottom: 1px solid #333;
+    transition: all 0.3s;
+  }
+
+  .row_pd_more:hover {
+    font-weight: 700;
+  }
+  .row2 {
+    margin: 15px 0;
+    overflow: hidden;
+    transform: translateX(50px);
+  }
+
+  .inner_container {
+    overflow: hidden;
+  }
+
+  .interview_box {
+    max-height: 580px;
+    /* 이부분 스크립트 걸어줄것 */
+    overflow: hidden;
+    scroll-behavior: smooth;
+    text-overflow: ellipsis;
+  }
+
+  .taste .swiper-button-next,
+  .taste .swiper-button-prev {
+    display: none;
+  }
+
+  .artist_more {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .artist_more a {
+    width: fit-content;
+    font-size: 15px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* 취향 */
+
+  .taste {
+    display: none;
+  }
+
+  .pc_taste {
+    display: block;
+    margin-bottom: 60px;
+    border: 1px solid rgb(156, 146, 134);
+  }
+
+  .taste_toggle_box {
+    display: flex;
+  }
+  .taste_text_box {
+    min-width: 200px;
+    background: var(--ivory);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .bunder_taste {
+    display: inline-block;
+    padding: 3px;
+    border-bottom: 1px solid #999;
+    color: #999;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .current_title {
+    display: block;
+    font-family: "GowunDodum-Regular";
+    font-size: 25px;
+  }
+
+  .taste_toggle_btns button {
+    display: block;
+    width: 80%;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 2rem;
+    background: white;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .taste_toggle_btns .active {
+    background: rgb(133, 118, 85);
+    color: white;
+  }
+
+  .taste_article_box {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+  }
+
+  .wellness_article img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .article_img {
+    margin-bottom: 10px;
+  }
+
+  .pc_taste_text p {
+    font-size: 14px;
+  }
+
+  .pc_taste_text .category_title {
+    font-size: 13px;
+  }
+}
+@media all and (min-width: 1025px) {
+  .product_toggle h2,
+  .artist h2,
+  .taste h2 {
+    font-size: 28px;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .header {
+    display: block;
+  }
+
+  section {
+    max-width: 1260px;
+    margin: 0 auto;
+  }
+
+  .project {
+    display: block;
+    max-width: 1260px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+  }
+
+  .project h2 {
+    font-family: "GowunDodum-Regular";
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .taste_text_box {
+    min-width: 300px;
+  }
+
+  .pc_footer {
+    display: block;
+  }
+
+  .pc_footer_top {
+    max-width: 1260px;
+    margin: 0 auto;
+  }
+
+  .pc_footer_bottom {
+    background: var(--green);
+  }
+
+  .pc_footer_logo span {
+    font-size: 24px;
+  }
+
+  .pc_footer_inner {
+    display: flex;
+    gap: 100px;
+    padding: 20px 0;
+    max-width: 1260px;
+    margin: 0 auto;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+  }
 }
