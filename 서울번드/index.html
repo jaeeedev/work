@@ -131,16 +131,89 @@
     <header class="pc_header">
       <div class="inner_pc_header">
         <h1><a href="../index.html">SEOUL BUND</a></h1>
-
         <ul class="menus">
-          <li>
-            <a href="#!">베스트</a>
+          <li class="category">
+            <div class="lnb_menu_title"><a href="#!">베스트</a></div>
           </li>
-          <li>
-            <a href="#!">스토어</a>
+          <li class="category store">
+            <div class="lnb_menu_title"><a href="#!">스토어</a></div>
+            <div class="lnb_menu_contents">
+              <div class="content_box">
+                <ul class="inner">
+                  <li>
+                    <h4>신제품</h4>
+                  </li>
+                  <li>
+                    <h4>선물추천</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">~5만원</a></li>
+                      <li><a href="#!">~10만원</a></li>
+                      <li><a href="#!">~20만원</a></li>
+                      <li><a href="#!">20만원~</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>테이블웨어</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">공기/대접</a></li>
+                      <li><a href="#!">종지/찬기</a></li>
+                      <li><a href="#!">면기</a></li>
+                      <li><a href="#!">플레이트</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>음료용품</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">컵/머그/잔</a></li>
+                      <li><a href="#!">유리잔</a></li>
+                      <li><a href="#!">다도용품</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>조리용품</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">냄비</a></li>
+                      <li><a href="#!">스티머</a></li>
+                      <li><a href="#!">프라이팬/그릴</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>홈데코</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">캔들/디퓨저/인센스</a></li>
+                      <li><a href="#!">화병</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </li>
-          <li><a href="#!">공예</a></li>
-          <li><a href="#!">프로젝트</a></li>
+          <li class="category craft">
+            <div class="lnb_menu_title"><a href="#!">공예</a></div>
+            <div class="lnb_menu_contents craft">
+              <div class="content_box">
+                <ul class="inner">
+                  <li>
+                    <h4><a href="#!">공예 모두보기</a></h4>
+                  </li>
+                  <li>
+                    <h4><a href="#!">공예 작가</a></h4>
+                  </li>
+                  <li>
+                    <h4><a href="#!">공예 작가 인터뷰</a></h4>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="category">
+            <div class="lnb_menu_title"><a href="#!">프로젝트</a></div>
+          </li>
         </ul>
 
         <ul class="tools">
@@ -291,28 +364,37 @@
       <h2>한눈에 보기</h2>
       <div class="promotions">
         <div class="top">
-        <div class="promotion_item">
-          <div class="pr_text">
-          <span class="pr_title">EVENT</span>
-          <div class="pr_text_desc">
-            <span>-10% 모든제품</span>
-            <p>왱알왱알 어쩌고저쩌고~~</p>
-            <a href="#!"><span>자세히 보기</span></a>
-          </div>
-          </div>  
-          <div class="pr_slide">
+          <div class="promotion_item">
+            <div class="pr_text">
+              <span class="pr_title">EVENT</span>
+              <div class="pr_text_desc">
+                <span>-10% 모든제품</span>
+                <p>왱알왱알 어쩌고저쩌고~~</p>
+                <a href="#!"><span>자세히 보기</span></a>
+              </div>
+            </div>
+            <div class="pr_slide slide_event">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="slide_img">
                     <picture>
-                      <img src="./img/event01.jpg" alt="">
+                      <img src="./img/event01.jpg" alt="" />
                     </picture>
                   </div>
                 </div>
                 <div class="swiper-slide">
                   <div class="slide_img">
                     <picture>
+                      <img src="./img/event02.jpg" alt="" />
                     </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide_img">
+                    <picture>
+                      <img src="./img/event03.jpg" alt="" />
+                    </picture>
+                  </div>
                 </div>
               </div>
               <div class="swiper-pagination"></div>
@@ -320,17 +402,47 @@
               <div class="swiper-button-next"></div>
             </div>
           </div>
-        </div>
-        <div class="promotion_item">
-          <div class="pr_text">
-          <span class="pr_title">EVENT</span>
-          <div class="pr_text_desc">
-            <span>-10% 모든제품</span>
-            <p>왱알왱알 어쩌고저쩌고~~</p>
-            <a href="#!"><span>자세히 보기</span></a>
+          <div class="promotion_item">
+            <div class="pr_text">
+              <span class="pr_title">SEOUL<br />BUND<br />ONLY</span>
+              <div class="pr_text_desc">
+                <span>-10% 모든제품</span>
+                <p>왱알왱알 어쩌고저쩌고~~</p>
+                <a href="#!"><span>자세히 보기</span></a>
+              </div>
+            </div>
+            <div class="pr_slide">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="slide_img">
+                    <picture>
+                      <img src="./img/event01.jpg" alt="" />
+                    </picture>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="slide_img">
+                    <picture> </picture>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
           </div>
-          </div>  
-          <div class="pr_slide">
+        </div>
+        <div class="bottom">
+          <div class="promotion_item">
+            <div class="pr_text">
+              <span class="pr_title">EVENT</span>
+              <div class="pr_text_desc">
+                <span>-10% 모든제품</span>
+                <p>왱알왱알 어쩌고저쩌고~~</p>
+                <a href="#!"><span>자세히 보기</span></a>
+              </div>
+            </div>
+            <div class="pr_slide">
               <!-- <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="slide_img">
@@ -349,20 +461,18 @@
               <div class="swiper-button-prev"></div>
               <div class="swiper-button-next"></div>
             </div> -->
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="bottom">
-        <div class="promotion_item">
-          <div class="pr_text">
-          <span class="pr_title">EVENT</span>
-          <div class="pr_text_desc">
-            <span>-10% 모든제품</span>
-            <p>왱알왱알 어쩌고저쩌고~~</p>
-            <a href="#!"><span>자세히 보기</span></a>
-          </div>
-          </div>  
-          <div class="pr_slide">
+          <div class="promotion_item">
+            <div class="pr_text">
+              <span class="pr_title">EVENT</span>
+              <div class="pr_text_desc">
+                <span>-10% 모든제품</span>
+                <p>왱알왱알 어쩌고저쩌고~~</p>
+                <a href="#!"><span>자세히 보기</span></a>
+              </div>
+            </div>
+            <div class="pr_slide">
               <!-- <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <div class="slide_img">
@@ -381,41 +491,10 @@
               <div class="swiper-button-prev"></div>
               <div class="swiper-button-next"></div>
             </div> -->
-          </div>
-        </div>
-        <div class="promotion_item">
-          <div class="pr_text">
-          <span class="pr_title">EVENT</span>
-          <div class="pr_text_desc">
-            <span>-10% 모든제품</span>
-            <p>왱알왱알 어쩌고저쩌고~~</p>
-            <a href="#!"><span>자세히 보기</span></a>
-          </div>
-          </div>  
-          <div class="pr_slide">
-              <!-- <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                      <img src="./img/event01.jpg" alt="">
-                    </picture>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                    </picture>
-                </div>
-              </div>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
-      </div>
-      
     </section>
 
     <section class="project">
@@ -752,71 +831,71 @@
           </div>
         </div>
         <div class="articles">
-        <div class="taste_article_box wellness active">
-          <div class="wellness_article">
-            <a class="article_img" href="#!">
-              <img src="./img/wellness01.jpg" />
-            </a>
-            <div class="pc_taste_text">
-              <span class="category_title">
-                CATEGORY | <span>WELLNESS</span>
-              </span>
-              <a href="#!">
-                <h4>미세먼지 안전구역, 우리집 지키는 반려식물</h4>
-                <p>초보 식집사와 식물, 모두가 건강하게!</p>
-                <span class="taste_more">자세히 보기</span>
+          <div class="taste_article_box wellness active">
+            <div class="wellness_article">
+              <a class="article_img" href="#!">
+                <img src="./img/wellness01.jpg" />
               </a>
+              <div class="pc_taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>WELLNESS</span>
+                </span>
+                <a href="#!">
+                  <h4>미세먼지 안전구역, 우리집 지키는 반려식물</h4>
+                  <p>초보 식집사와 식물, 모두가 건강하게!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+            <div class="wellness_article">
+              <a class="article_img" href="#!">
+                <img src="./img/wellness02.jpg" />
+              </a>
+              <div class="pc_taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>WELLNESS</span>
+                </span>
+                <a href="#!">
+                  <h4>똑똑한 공간별 활용 솔루션</h4>
+                  <p>자투리 공간도 200% 알차게 활용하는 법</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="wellness_article">
-            <a class="article_img" href="#!">
-              <img src="./img/wellness02.jpg" />
-            </a>
-            <div class="pc_taste_text">
-              <span class="category_title">
-                CATEGORY | <span>WELLNESS</span>
-              </span>
-              <a href="#!">
-                <h4>똑똑한 공간별 활용 솔루션</h4>
-                <p>자투리 공간도 200% 알차게 활용하는 법</p>
-                <span class="taste_more">자세히 보기</span>
+          <div class="taste_article_box kitchen">
+            <div class="kitchen_article">
+              <a class="article_img" href="#!">
+                <img src="./img/kitchen01.jpg" />
               </a>
+              <div class="pc_taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>KITCHEN</span>
+                </span>
+                <a href="#!">
+                  <h4>캠핑 초보도 할 수 있는 '홈캠핑' 도전기</h4>
+                  <p>봄캠핑의 낭만, 집에서도 밖에서도 즐겨요!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+            <div class="kitchen_article">
+              <a class="article_img" href="#!">
+                <img src="./img/kitchen02.jpg" />
+              </a>
+              <div class="pc_taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>KITCHEN</span>
+                </span>
+                <a href="#!">
+                  <h4>싱그러운 제철 식재료 어떻게 즐기세요?</h4>
+                  <p>더 맛있고 신선하게 보관해 보세요!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        <div class="taste_article_box kitchen">
-          <div class="kitchen_article">
-            <a class="article_img" href="#!">
-              <img src="./img/kitchen01.jpg" />
-            </a>
-            <div class="pc_taste_text">
-              <span class="category_title">
-                CATEGORY | <span>KITCHEN</span>
-              </span>
-              <a href="#!">
-                <h4>캠핑 초보도 할 수 있는 '홈캠핑' 도전기</h4>
-                <p>봄캠핑의 낭만, 집에서도 밖에서도 즐겨요!</p>
-                <span class="taste_more">자세히 보기</span>
-              </a>
-            </div>
-          </div>
-          <div class="kitchen_article">
-            <a class="article_img" href="#!">
-              <img src="./img/kitchen02.jpg" />
-            </a>
-            <div class="pc_taste_text">
-              <span class="category_title">
-                CATEGORY | <span>KITCHEN</span>
-              </span>
-              <a href="#!">
-                <h4>싱그러운 제철 식재료 어떻게 즐기세요?</h4>
-                <p>더 맛있고 신선하게 보관해 보세요!</p>
-                <span class="taste_more">자세히 보기</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
       </div>
     </section>
 
@@ -932,6 +1011,7 @@
         </div>
       </div>
     </footer>
+    <script src="./js/common.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>
