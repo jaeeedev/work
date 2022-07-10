@@ -89,6 +89,19 @@ monthlyBtns.addEventListener("click", (e) => {
   }
 });
 
+//프로모션
+new Swiper(".slide_event", {
+  loop: true,
+  autoplay: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 //작가
 
 const artistPdBox = document.querySelector(".artist_product");

@@ -173,13 +173,30 @@
 
 .detail_img {
   width: 100%;
-  height: 200px;
   overflow: hidden;
   transition: all 0.4s;
 }
 
-.detail_img.on {
-  height: 400px;
+.detail_content {
+  text-align: center;
+  height: 300px;
+  overflow: hidden;
+}
+
+.detail_content.on {
+  height: fit-content;
+}
+
+.detail_bold {
+  display: block;
+  font-family: Pretendard, sans-serif;
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.detail_img {
+  margin-bottom: 20px;
 }
 
 .detail_content img {
@@ -187,25 +204,66 @@
   display: block;
 }
 
+.detail_text {
+  padding: 0 20px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.detail_view img {
+  margin-bottom: 3px;
+}
+
 .nav_bar div.on {
   border-bottom: 2px solid var(--green);
   transform: translateY(2px);
 }
 
-.open {
+.open,
+.close {
   width: 100%;
   padding: 13px;
   border: none;
   color: white;
   background: var(--green);
   cursor: pointer;
+  margin-bottom: 60px;
+}
+
+.close {
+  display: none;
 }
 
 /* 후기 */
 
+.review {
+  margin-bottom: 60px;
+}
+
+.review_item_name {
+  margin: 10px 20px;
+  line-height: 1.4;
+}
+
 .total_rate {
   margin: 10px 20px;
   border-bottom: 1px solid #ccc;
+}
+
+.review_filter {
+  margin: 0 20px;
+}
+.review_filter_btn {
+  padding: 5px 15px;
+  border: 1px solid #333;
+  border-radius: 1rem;
+  background: white;
+  cursor: pointer;
+}
+.review_filter_btn.on {
+  background: var(--green);
+  color: white;
+  border: 1px solid var(--green);
 }
 
 .rate_title {
@@ -237,6 +295,7 @@
   border: none;
   background: #333;
   color: white;
+  cursor: pointer;
 }
 
 .review_box {
@@ -262,6 +321,139 @@
   display: inline-block;
   width: 100px;
   height: 100px;
+}
+
+.review_star {
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 2px;
+  color: var(--green);
+}
+
+.review_text p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.review_date {
+  font-size: 14px;
+  color: #999;
+}
+
+/* 큐엔에이 상품문의 */
+
+.qna {
+  margin: 20px;
+}
+
+.qna h2 {
+  font-family: "GowunDodum-Regular";
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.qna_list {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+
+.pc_list_title {
+  display: none;
+}
+.write_qna {
+  display: block;
+  padding: 10px 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+  background: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.qna_item {
+  font-size: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.qna_item_detail {
+  display: inline-flex;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.qna_item_num {
+  min-width: 25px;
+  display: none;
+}
+
+.qna_item_title {
+  flex: 1;
+}
+.qna_item:last-child {
+  border: none;
+}
+
+.view_count::before {
+  display: inline-block;
+  content: "조회";
+  margin-right: 3px;
+}
+
+/* 연관 상품 */
+.relative_pd {
+  margin: 0 30px;
+  margin-bottom: 60px;
+  overflow: hidden;
+}
+
+.relative_pd h2 {
+  font-family: "GowunDodum-Regular";
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.relative_slide {
+  padding: 0 10px;
+  position: relative;
+}
+
+.rel_img {
+  overflow: hidden;
+}
+
+.rel_img img {
+  width: 100%;
+  display: block;
+}
+
+.rel_text {
+  font-size: 14px;
+}
+
+.rel_name {
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
+}
+
+.rel_price {
+  font-weight: 700;
+  padding: 5px;
+}
+
+.relative_slide .swiper-button-next,
+.relative_slide .swiper-button-prev {
+  color: #333;
+}
+.relative_slide .swiper-button-next::after,
+.relative_slide .swiper-button-prev::after {
+  font-size: 33px;
 }
 
 @media all and (min-width: 601px) {
@@ -309,8 +501,71 @@
   }
 }
 @media all and (min-width: 769px) {
+  .qna_item_num {
+    display: block;
+    width: 80px;
+    margin-left: 20px;
+  }
+  .qna_item {
+    flex-direction: row;
+  }
+
+  .qna_item_detail {
+    gap: 20px;
+    margin-right: 20px;
+  }
+
+  .view_count::before {
+    content: "";
+  }
+
+  .pc_list_title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+
+  .pc_list_title span {
+    display: block;
+  }
+  .list_num {
+    margin-left: 10px;
+  }
+  .list_detail {
+    display: flex;
+    gap: 25px;
+    margin-right: 10px;
+  }
+  .write_qna {
+    margin-left: auto;
+  }
+
+  .review_item_name {
+    font-size: 18px;
+  }
+
+  .total_rate {
+    display: flex;
+    align-items: center;
+  }
+  .write_review {
+    margin-left: auto;
+  }
 }
 @media all and (min-width: 1025px) {
 }
 @media all and (min-width: 1261px) {
+  .total_rate,
+  .review_item_name,
+  .review_box {
+    margin: 0;
+  }
+
+  .review,
+  .qna,
+  .relative_pd {
+    max-width: 1260px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+  }
 }

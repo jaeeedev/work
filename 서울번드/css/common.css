@@ -87,6 +87,13 @@ button {
   font-size: 16px;
 }
 
+.menus > li {
+  min-width: 150px;
+}
+
+.hide_lnb a {
+  color: #333 !important;
+}
 /* 모바일 사이드 메뉴 */
 
 .side_btn {
@@ -221,17 +228,19 @@ button {
 
 .inner_pc_header {
   max-width: 1540px;
+  height: 60px;
   margin: 0 auto;
-  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .pc_header h1 a {
+  min-width: 120px;
   color: white;
   font-size: 20px;
+  margin: 0 8px;
 }
 
 .pc_header .menus {
@@ -240,18 +249,26 @@ button {
   margin-right: 50px;
 }
 
-.pc_header .menus li {
-  width: 25%;
-}
-
 .pc_header .menus a {
-  color: white;
+  color: #333;
   font-size: 16px;
   padding: 10px;
 }
 
+.category .lnb_menu_title a {
+  color: white;
+  padding: 20px 0;
+}
+
+.lnb_menu_contents {
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+}
+
 .tools {
   display: flex;
+  justify-content: center;
   gap: 10px;
   flex: 1;
 }
@@ -263,6 +280,7 @@ button {
 .gnb {
   display: flex;
   gap: 10px;
+  min-width: 73px;
 }
 
 .gnb,
@@ -273,6 +291,72 @@ button {
 .lang .select_lang {
   height: 20px;
   overflow: hidden;
+}
+
+.lnb_menu_contents {
+  display: block;
+  z-index: 11;
+  border-bottom: 1px solid #ddd;
+}
+
+.lnb_menu_contents {
+  position: absolute;
+  top: 59px;
+  left: 0;
+  width: 100%;
+  background: white;
+}
+
+.lnb_menu_contents .content_box {
+  background: white;
+  color: #999;
+  padding: 0 175px;
+}
+
+.content_box .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  padding-top: 40px;
+  flex-wrap: wrap;
+}
+
+.content_box .inner ul {
+  margin-bottom: 60px;
+}
+
+.content_box .inner li {
+  cursor: pointer;
+}
+
+.inner > li {
+  width: 25%;
+}
+
+.content_box .inner h4 {
+  font-size: 17px;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.content_box .inner a {
+  color: #555;
+  padding: 7px;
+  padding-left: 0px;
+}
+
+.content_box .inner a:hover {
+  color: var(--green);
+}
+
+.lnb_menu_contents.craft .inner li {
+  margin: 0;
+  margin-bottom: 60px;
+}
+.lnb_menu_contents.craft .inner li a {
+  color: #333;
+  font-weight: 700;
 }
 
 @media all and (min-width: 769px) {

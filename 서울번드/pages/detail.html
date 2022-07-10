@@ -11,6 +11,11 @@
       src="https://kit.fontawesome.com/7cde33c3cd.js"
       crossorigin="anonymous"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="../js/detail.js" defer></script>
   </head>
   <body>
@@ -243,17 +248,93 @@
         <div class="detail_img">
           <img src="../img/detail01.jpg" alt="" />
         </div>
-        <button class="open">
-          펼치기 <i class="fa-solid fa-angle-down"></i>
-        </button>
+        <div class="detail_text">
+          <span class="detail_bold">PULL CUP</span>
+          <p>
+            스템이 있는 고블렛의 고전적인 형태에서 ‘위로 당긴다면?’<br />
+            이라는 재미있는 상상을 더해 제작된 <풀컵>입니다.<br />
+            이중 유리컵으로 시원한 음료를 담았을 때 생기는 이슬이 방지되며,<br />
+            뜨거운 내용물을 담아도 사용하기 편리합니다.<br />
+            고블렛의 우아한 매력에 현대적인 무드가 더해져 활용도가 높아<br />
+            물이나 커피 등을 담는 데일리 잔의 용도뿐 아니라<br />
+            와인잔, 디저트 보울로도 훌륭합니다.<br />
+            푸시컵, 풀컵을 함께 매칭해 세련된 홈카페를 만들어보세요.
+          </p>
+        </div>
+
+        <div class="detail_img">
+          <img src="../img/detail02.jpg" alt="" />
+        </div>
+
+        <div class="detail_text">
+          <span class="detail_bold"> 02 폭넓은 활용도 </span>
+          <p>
+            음료나 커피뿐 아니라 와인, 요거트 등을 담아도<br />
+            적당한 사이즈와 용량입니다.
+          </p>
+        </div>
+
+        <div class="detail_img">
+          <img src="../img/detail03.jpg" alt="상품 이미지" />
+          <img src="../img/detail04.jpg" alt="상품 이미지" />
+          <br />
+          <img src="../img/detail05.jpg" alt="상품 이미지" />
+          <img src="../img/detail06.jpg" alt="상품 이미지" />
+          <br />
+          <img src="../img/detail07.jpg" alt="상품 이미지" />
+          <img src="../img/detail08.jpg" alt="상품 이미지" />
+        </div>
+
+        <div class="detail_text">
+          <span class="detail_bold">DETAIL VIEW</span>
+          <p>
+            디테일 이미지가 실제 제품 색상과 가장 흡사합니다.<br />
+            색상은 모니터에 따라 차이가 있을 수 있습니다.
+          </p>
+        </div>
+
+        <div class="detail_img detail_view">
+          <img src="../img/detail09.jpg" alt="" />
+          <img src="../img/detail10.jpg" alt="" />
+          <img src="../img/detail11.jpg" alt="" />
+        </div>
+
+        <div class="detail_text">
+          <p>
+            몰드를 활용한 블로잉 기법으로 제작되며,<br />
+            해당 부분은 주입구 입니다.<br />
+            모든 상품에 주입구가 있으며,<br />
+            주입구로 인한 교환/환불은 진행되지 않습니다.<br />
+            구매 시, 이 점 꼭 확인 부탁드리겠습니다.
+          </p>
+        </div>
+
+        <div class="detail_text">
+          <span class="detail_bold">PRODUCT INFO</span>
+          <p>
+            제품의 디자인이나 상품 소재의 특성, 측정위치 등에 따라 <br />차이가
+            있을 수 있습니다.
+          </p>
+        </div>
       </div>
+      <button class="open">
+        펼치기 <i class="fa-solid fa-angle-down"></i>
+      </button>
+      <button class="close">접기 <i class="fa-solid fa-angle-up"></i></button>
     </section>
     <section class="review" id="review">
+      <div class="review_item_name">
+        <h4>[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵</h4>
+      </div>
       <div class="total_rate">
         <span class="rate_title">평점</span>
         <span class="rate_number">4.5</span>
         <span class="rate_amount">37</span>
         <button class="write_review">리뷰작성</button>
+      </div>
+      <div class="review_filter">
+        <button class="review_filter_btn on">전체 리뷰</button>
+        <button class="review_filter_btn">사진 리뷰</button>
       </div>
       <div class="review_box">
         <div class="review_writer">
@@ -262,12 +343,12 @@
         </div>
 
         <div class="review_img">
-          <img src="" alt="" />
-          <img src="" alt="" />
+          <img src="../img/review01.jpg" alt="리뷰 이미지" />
+          <img src="../img/review02.jpg" alt="리뷰 이미지" />
         </div>
 
         <div class="review_text">
-          <span class="review_star">⭐⭐⭐⭐⭐</span>
+          <span class="review_star">★★★★★</span>
           <p>
             디자인과 색상이 아주 잘 어우러집니다. 묵직한 느낌이 너무 좋아요.
             트레이로 되어있어서 다른 과일과 주전부리를 함께 보관할 수 있다는
@@ -279,56 +360,150 @@
     </section>
     <section class="qna" id="qna">
       <h2>상품 문의</h2>
-
-      <div class="qna_bar">
-        <div>
-          <span>81</span>
-          <span>문의드립니다.</span>
-          <span>김김*</span>
-          <span>2022-07-01</span>
-          <span>1</span>
+      <div class="pc_list_title">
+        <span class="list_num">글번호</span>
+        <span class="list_main"></span>
+        <div class="list_detail">
+          <span class="list_writer">작성자</span>
+          <span class="list_date">작성일</span>
+          <span class="list_view_count">조회</span>
         </div>
-        <div>
-          <span>81</span>
-          <span>문의드립니다.</span>
-          <span>김김*</span>
-          <span>2022-07-01</span>
-          <span>1</span>
+      </div>
+      <div class="qna_list">
+        <div class="qna_item">
+          <div class="qna_item_num">
+            <span>81</span>
+          </div>
+          <div class="qna_item_title">
+            <span>문의드립니다.</span>
+          </div>
+          <div class="qna_item_detail">
+            <span>김김*</span>
+            <span>2022-07-01</span>
+            <span class="view_count">1</span>
+          </div>
         </div>
-        <div>
-          <span>81</span>
-          <span>문의드립니다.</span>
-          <span>김김*</span>
-          <span>2022-07-01</span>
-          <span>1</span>
+        <div class="qna_item">
+          <div class="qna_item_num">
+            <span>81</span>
+          </div>
+          <div class="qna_item_title">
+            <span>문의드립니다.</span>
+          </div>
+          <div class="qna_item_detail">
+            <span>김김*</span>
+            <span>2022-07-01</span>
+            <span class="view_count">2</span>
+          </div>
         </div>
-        <div>
-          <span>81</span>
-          <span>문의드립니다.</span>
-          <span>김김*</span>
-          <span>2022-07-01</span>
-          <span>1</span>
+        <div class="qna_item">
+          <div class="qna_item_num">
+            <span>81</span>
+          </div>
+          <div class="qna_item_title">
+            <span>문의드립니다.</span>
+          </div>
+          <div class="qna_item_detail">
+            <span>김김*</span>
+            <span>2022-07-01</span>
+            <span class="view_count">1</span>
+          </div>
         </div>
-        <div>
-          <span>81</span>
-          <span>문의드립니다.</span>
-          <span>김김*</span>
-          <span>2022-07-01</span>
-          <span>1</span>
+        <div class="qna_item">
+          <div class="qna_item_num">
+            <span>81</span>
+          </div>
+          <div class="qna_item_title">
+            <span>문의드립니다.</span>
+          </div>
+          <div class="qna_item_detail">
+            <span>김김*</span>
+            <span>2022-07-01</span>
+            <span class="view_count">1</span>
+          </div>
+        </div>
+        <div class="qna_item">
+          <div class="qna_item_num">
+            <span>81</span>
+          </div>
+          <div class="qna_item_title">
+            <span>문의드립니다.</span>
+          </div>
+          <div class="qna_item_detail">
+            <span>김김*</span>
+            <span>2022-07-01</span>
+            <span class="view_count">1</span>
+          </div>
         </div>
       </div>
       <button class="write_qna">문의하기</button>
     </section>
 
     <section class="relative_pd">
-      <div class="pd_img">
-        <img src="" alt="" />
-      </div>
-      <div class="pd_text">
-        <a href="#!">
-          <span>[서울번드 코워크] 오유 글라스워크 수저받침 (5 colors)</span>
-          <span>41,200</span>
-        </a>
+      <h2>연관 상품</h2>
+      <div class="relative_slide">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="rel_img">
+              <img
+                src="../img/rel01.jpg"
+                alt="[안나리사] 노스탈기아 시리즈_디저트 보울]"
+              />
+            </div>
+            <div class="rel_text">
+              <a href="#!" class="rel_name"
+                ><span>[안나리사] 노스탈기아 시리즈_디저트 보울]</span></a
+              >
+              <span class="rel_price">250,000</span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="rel_img">
+              <img
+                src="../img/rel02.png"
+                alt="[안나리사] 노스탈기아 시리즈_고블렛 (3 colors)"
+              />
+            </div>
+            <div class="rel_text">
+              <a href="#!" class="rel_name"
+                ><span>[안나리사] 노스탈기아 시리즈_고블렛 (3 colors)</span></a
+              >
+              <span class="rel_price">130,000</span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="rel_img">
+              <img
+                src="../img/rel03.png"
+                alt="[안나리사] 파스텔리 시리즈_고블렛 (4 colors)"
+              />
+            </div>
+            <div class="rel_text">
+              <a href="#!" class="rel_name"
+                ><span>[안나리사] 파스텔리 시리즈_고블렛 (4 colors)</span></a
+              >
+              <span class="rel_price">130,000</span>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="rel_img">
+              <img
+                src="../img/rel04.jpg"
+                alt="[안나리사] 그레이스 시리즈_캔들 스틱 #1"
+              />
+            </div>
+            <div class="rel_text">
+              <a href="#!" class="rel_name"
+                ><span>[안나리사] 그레이스 시리즈_캔들 스틱 #1</span></a
+              >
+              <span class="rel_price">80,000</span>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </section>
   </body>

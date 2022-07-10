@@ -91,10 +91,6 @@ body {
   display: block;
 }
 
-.swiper-slide img {
-  margin-bottom: 10px;
-}
-
 .pd_name {
   line-height: 1.4;
   font-size: 13px;
@@ -111,42 +107,29 @@ body {
 
 /* 프로모션 */
 
+.promotion {
+  margin-bottom: 60px;
+}
+
 .promotion h2 {
   text-align: center;
   font-family: "GowunDodum-Regular";
   font-size: 18px;
-}
-
-.promotions {
-  max-width: 1260px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.promotions .top {
-  width: 100%;
   margin-bottom: 10px;
-  display: flex;
-  gap: 20px;
-  overflow: hidden;
-}
-
-.promotions .bottom {
-  margin-bottom: 10px;
-  width: 100%;
-  display: flex;
-  gap: 20px;
 }
 
 .promotion_item {
-  flex:1;
+  width: calc(100% - 20px);
 }
-
 
 .pr_text {
   width: 30%;
   background: var(--green);
   color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .pr_title {
@@ -155,7 +138,13 @@ body {
 }
 
 .pr_text_desc span {
+  display: inline-block;
   font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.pr_text_desc p {
+  font-size: 15px;
 }
 .pr_text_desc a span {
   display: inline-block;
@@ -163,11 +152,13 @@ body {
   padding-bottom: 3px;
   border-bottom: 1px solid white;
   color: white;
+  font-size: 15px;
 }
 
 .pr_slide {
   width: 70%;
   overflow: hidden;
+  position: relative;
 }
 
 .slide_img img {
@@ -175,6 +166,10 @@ body {
   width: 100%;
 }
 
+.promotion_item:nth-child(2),
+.promotion .bottom {
+  display: none;
+}
 
 /*  프로젝트  */
 
@@ -640,7 +635,6 @@ body {
     font-size: 16px;
   }
 
-
   /* 취향 */
 
   .taste .swiper-button-prev::after,
@@ -924,30 +918,38 @@ body {
     margin-bottom: 10px;
   }
 
-
-  .artist>p {
-  font-size: 16px;
+  .artist > p {
+    font-size: 16px;
   }
-
 
   .taste_text_box {
     min-width: 300px;
   }
 
+  .promotion .top,
+  .promotion .bottom {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
 
-  .promotion_item {
-    width: 100%;
+  .promotion_item:nth-child(2) {
     display: flex;
   }
-  
-  .pr_text {
-    width: 25%;
+
+  .promotion_item {
+    flex: 1;
+    min-width: 620px;
+    display: flex;
   }
 
   .pr_text {
-    width: 75%;
+    width: 30%;
   }
 
+  .pr_slide {
+    width: 70%;
+  }
 
   .pc_footer {
     display: block;
