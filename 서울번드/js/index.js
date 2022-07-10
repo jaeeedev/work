@@ -90,7 +90,7 @@ monthlyBtns.addEventListener("click", (e) => {
 });
 
 //프로모션
-new Swiper(".slide_event", {
+new Swiper(".event_slide", {
   loop: true,
   autoplay: true,
   pagination: {

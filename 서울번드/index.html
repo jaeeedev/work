@@ -263,6 +263,17 @@
               </picture>
             </div>
           </div>
+          <div class="swiper-slide">
+            <div class="slide_img">
+              <picture>
+                <source
+                  srcset="./img/pc_main03.jpg"
+                  media="all and (min-width: 601px)"
+                />
+                <img src="./img/mobile_main03.jpg" alt="" />
+              </picture>
+            </div>
+          </div>
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination"></div>
@@ -362,138 +373,287 @@
 
     <section class="promotion">
       <h2>한눈에 보기</h2>
-      <div class="promotions">
-        <div class="top">
-          <div class="promotion_item">
-            <div class="pr_text">
-              <span class="pr_title">EVENT</span>
-              <div class="pr_text_desc">
-                <span>-10% 모든제품</span>
-                <p>왱알왱알 어쩌고저쩌고~~</p>
-                <a href="#!"><span>자세히 보기</span></a>
+
+      <div class="pr_slide_wrap">
+        <div class="promotion_slide event_slide">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">EVENT</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">7월 "달이면 달마다"</span>
+                  <p>
+                    이번 달 쿠폰팩과 함께라면 폭염 걱정은 뚝! 회원 모두에게
+                    7월의 상쾌함을 선물합니다 (~7/31)
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/event01.jpg" alt="" />
+                </a>
               </div>
             </div>
-            <div class="pr_slide slide_event">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                      <img src="./img/event01.jpg" alt="" />
-                    </picture>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                      <img src="./img/event02.jpg" alt="" />
-                    </picture>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                      <img src="./img/event03.jpg" alt="" />
-                    </picture>
-                  </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">EVENT</div>
+                <div class="pr_desc">
+                  <span class="pr_bold"
+                    >베스트 리뷰어에게 적립금 5,000원 선물</span
+                  >
+                  <p>
+                    번더들에게 나만의 취향을 공유해 주세요. 후기를 남겨주신
+                    모두에게 적립금을 드려요.
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
                 </div>
               </div>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/event02.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">EVENT</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">-10% 모든 제품</span>
+                  <p>
+                    회원 가입 즉시 모두에게 발급 전 제품 10% 할인 쿠폰 (일부
+                    제품 제외)
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/event03.jpg" alt="" />
+                </a>
+              </div>
             </div>
           </div>
-          <div class="promotion_item">
-            <div class="pr_text">
-              <span class="pr_title">SEOUL<br />BUND<br />ONLY</span>
-              <div class="pr_text_desc">
-                <span>-10% 모든제품</span>
-                <p>왱알왱알 어쩌고저쩌고~~</p>
-                <a href="#!"><span>자세히 보기</span></a>
-              </div>
-            </div>
-            <div class="pr_slide">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                      <img src="./img/event01.jpg" alt="" />
-                    </picture>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture> </picture>
-                  </div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
-            </div>
-          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
-        <div class="bottom">
-          <div class="promotion_item">
-            <div class="pr_text">
-              <span class="pr_title">EVENT</span>
-              <div class="pr_text_desc">
-                <span>-10% 모든제품</span>
-                <p>왱알왱알 어쩌고저쩌고~~</p>
-                <a href="#!"><span>자세히 보기</span></a>
+
+        <div class="promotion_slide only_slide">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">SEOUL<br />BUND<br />ONLY</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">하경아도자기</span>
+                  <p>
+                    투박한듯 섬세한 도자 공예가의 손길 러프한 라인이 매력적인
+                    자연 그대로의 그릇<br />
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/only01.jpg" alt="" />
+                </a>
               </div>
             </div>
-            <div class="pr_slide">
-              <!-- <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                      <img src="./img/event01.jpg" alt="">
-                    </picture>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                    </picture>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">SEOUL<br />BUND<br />ONLY</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">안나리사</span>
+                  <p>
+                    자연을 닮은 잔잔한 아름다움<br />
+                    부드러운 무드의 핸드 블론 유리공예품
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
                 </div>
               </div>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div> -->
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/only02.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">SEOUL<br />BUND<br />ONLY</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">나은크라프트</span>
+                  <p>
+                    기품있는 옻칠 색상과 자개의 만남<br />
+                    실용적이고 현대적인 디자인
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/only03.jpg" alt="" />
+                </a>
+              </div>
             </div>
           </div>
-          <div class="promotion_item">
-            <div class="pr_text">
-              <span class="pr_title">EVENT</span>
-              <div class="pr_text_desc">
-                <span>-10% 모든제품</span>
-                <p>왱알왱알 어쩌고저쩌고~~</p>
-                <a href="#!"><span>자세히 보기</span></a>
-              </div>
-            </div>
-            <div class="pr_slide">
-              <!-- <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                      <img src="./img/event01.jpg" alt="">
-                    </picture>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="slide_img">
-                    <picture>
-                    </picture>
-                </div>
-              </div>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div> -->
-            </div>
-          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
+
+        <div class="promotion_slide taste_slide">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">번더의 취향</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">영원을 담은 공예 작품 한 점</span>
+                  <p>
+                    한국 공예품과 함께하는 아트테리어<br />
+                    전통미와 모던함, 두 마리 토끼를 잡았어요.
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/taste01.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">번더의 취향</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">실패없는 조합, 화이트 & 우드</span>
+                  <p>
+                    1인가구도 쉽고 간편하게 누리는 아늑함<br />
+                    번더 ‘나주’의 취향이 담긴 홈 스타일링 팁
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/taste02.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">번더의 취향</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">봄을 기다리며, 미리 파스텔</span>
+                  <p>
+                    새로운 계절맞이, 변화가 필요할 때!<br />
+                    포근한 파스텔 컬러 아이템 추천
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/taste03.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="promotion_slide best_slide">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">BEST<br />REVIEW</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">BEST REVIEW</span>
+                  <p>
+                    [서울번드] WGNB PUSH GLASS CUP 푸시 고블렛 유리컵<br />
+                    유니크한 디자인, 손님맞이 차림에 내놓으면 항상 인기
+                    만점이에요.
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/br01.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">BEST<br />REVIEW</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">BEST REVIEW</span>
+                  <p>[헤리터] 메르디안 키친 매트</p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/br02.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">BEST<br />REVIEW</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">BEST REVIEW</span>
+                  <p>[심사영] White Memories 플렛 접시 (오발)</p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/br03.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      <div class="pr_mobile_more">
+        <a href="#!"><span>더보기</span></a>
       </div>
     </section>
 

@@ -45,6 +45,7 @@
 .item_info {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 14px;
   margin-bottom: 10px;
 }
@@ -59,7 +60,9 @@
   font-size: 14px;
 }
 .item_name {
+  display: inline-block;
   font-size: 14px;
+  margin-bottom: 3px;
 }
 .item_option {
   font-size: 13px;
@@ -137,12 +140,19 @@
 
 /* 디테일 */
 .nav_bar {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: translateY(2px);
   background: white;
   border-bottom: 1px solid #ccc;
+}
+
+.nav_bar.fixed {
+  position: fixed;
+  top: 0;
+  transform: translateY(0);
 }
 
 .nav_bar div a {
@@ -456,6 +466,23 @@
   font-size: 33px;
 }
 
+.topBtn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50%;
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1111;
+}
+
 @media all and (min-width: 601px) {
   .order_section {
     max-width: 1260px;
@@ -482,6 +509,19 @@
 
   .order_box {
     flex: 1;
+    padding: 20px;
+  }
+
+  .nav_bar div a {
+    font-size: 17px;
+    padding: 10px 25px;
+  }
+  .go_review a span {
+    width: 18px;
+    height: 18px;
+    transform: translateY(-1px);
+    line-height: 18px;
+    font-size: 12px;
   }
 
   .detail {
@@ -498,6 +538,42 @@
   .detail_content img {
     display: block;
     width: 100%;
+  }
+
+  .close {
+    font-size: 16px;
+  }
+
+  .review_item_name {
+    font-size: 20px;
+  }
+  .total_rate span {
+    font-size: 16px;
+  }
+  .total_rate .rate_number {
+    font-size: 20px;
+  }
+
+  .write_review,
+  .write_qna {
+    font-size: 16px;
+    padding: 10px 50px;
+  }
+
+  .review_filter button {
+    font-size: 16px;
+    padding: 10px 30px;
+    border-radius: 2rem;
+  }
+
+  .review_writer span,
+  .review_text p,
+  .review_date {
+    font-size: 15px;
+  }
+
+  .review_star {
+    font-size: 20px;
   }
 }
 @media all and (min-width: 769px) {
@@ -567,5 +643,9 @@
     max-width: 1260px;
     margin: 0 auto;
     margin-bottom: 60px;
+  }
+
+  .review_filter {
+    margin: 10px 0;
   }
 }
