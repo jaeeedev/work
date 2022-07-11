@@ -128,7 +128,7 @@ function addItem() {
 }
 function calcTotal() {
   totalAmount = orderOptions.reduce((acc, cur) => {
-    return acc + cur.price;
+    return acc + cur.price * cur.count;
   }, 0);
   const totalPrice = document.querySelector(".total_price");
   totalPrice.textContent = totalAmount;
@@ -137,7 +137,7 @@ function writeItem() {
   const totalBoxContents =
     orderOptions
       .map((item, index) => {
-        return `<div class="total_item" data-index="${index}">
+        return `<div class="total_item">
       <span class="item_name"
       >[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵</span
     >
@@ -146,7 +146,7 @@ function writeItem() {
       <div>
         <span class="data-price">${item.price}</span>
         <span class="delete_item"
-          ><i class="fa-solid fa-xmark" data-index="${index}"></i
+          ><i class="fa-solid fa-xmark"></i
         ></span>
       </div>
     </div>
@@ -192,8 +192,24 @@ selectOption.addEventListener("input", () => {
   calcTotal();
   totalItems = document.querySelectorAll(".total_item");
   deleteBtns = document.querySelectorAll(".delete_item");
-  deleteBtns.forEach((btn) => {
-    btn.addEventListener("click", deleteItem);
+  totalItems.forEach((btn, i) => {
+    btn.addEventListener("click", (e) => {
+      const substract = btn.querySelector(".quantity_substract");
+      const plus = btn.querySelector(".quantity_plus");
+      const countInput = btn.querySelector(".current_quantity");
+      if (e.target === substract) {
+        if (countInput.value <= 1) return;
+        countInput.value--;
+        orderOptions[i].count = countInput.value;
+        calcTotal();
+      } else if (e.target === plus) {
+        if (countInput.value >= 10) return;
+        countInput.value++;
+        orderOptions[i].count = countInput.value;
+        console.log(orderOptions);
+        calcTotal();
+      }
+    });
   });
 });
 
