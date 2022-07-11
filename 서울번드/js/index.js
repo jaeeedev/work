@@ -102,6 +102,42 @@ new Swiper(".event_slide", {
   },
 });
 
+new Swiper(".only_slide", {
+  loop: true,
+  autoplay: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+new Swiper(".taste_slide", {
+  loop: true,
+  autoplay: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+new Swiper(".best_slide", {
+  loop: true,
+  autoplay: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 //작가
 
 const artistPdBox = document.querySelector(".artist_product");
@@ -139,6 +175,26 @@ new Swiper(".swiper_kitchen", {
   },
 });
 
+const tasteBtns = document.querySelector(".taste_btns");
+tasteBtns.addEventListener("click", (e) => {
+  const wellnessBtn = tasteBtns.querySelector(".wellness");
+  const kitchenBtn = tasteBtns.querySelector(".recipe");
+  const wellnessSlide = document.querySelector(".swiper_wellness");
+  const kitchenSlide = document.querySelector(".swiper_kitchen");
+
+  if (e.target === wellnessBtn) {
+    wellnessBtn.classList.add("active");
+    kitchenBtn.classList.remove("active");
+    wellnessSlide.classList.add("active");
+    kitchenSlide.classList.remove("active");
+  } else if (e.target === kitchenBtn) {
+    wellnessBtn.classList.remove("active");
+    kitchenBtn.classList.add("active");
+    wellnessSlide.classList.remove("active");
+    kitchenSlide.classList.add("active");
+  }
+});
+
 //공지사항 슬라이드
 
 const eventSlide = document.querySelector(".notice_slide");
@@ -156,7 +212,7 @@ setInterval(() => {
   eventSlide.style.transform = `translateY(-${currentMove}px)`;
   eventSlide.style.transition = "all 2s 1s";
 
-  if (currentMove >= 300) {
+  if (currentMove >= 240) {
     setTimeout(() => {
       eventSlide.style.transition = "none";
       currentMove = 0;

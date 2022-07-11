@@ -25,7 +25,9 @@
 } */
 
 :root {
-  --green: #2f6d68;
+  --green: #2c5855;
+  /* 2c5855 이색이 더나은거같기도하고 */
+  /* 그래서 바꿈 원래 색: 2f6d68 */
   --ivory: #f1eee6;
   --brown: #58533c;
   --olive: #486441;
@@ -67,8 +69,8 @@ button {
 /* 모바일 헤더 */
 
 .header {
-  background: var(--green);
-  color: white;
+  background: white;
+  color: #333;
 }
 
 .inner_header {
@@ -79,7 +81,7 @@ button {
 }
 
 .inner_header h1 a {
-  color: white;
+  color: #333;
   font-size: 20px;
   font-family: Pretendard;
   font-weight: 600;
@@ -107,6 +109,7 @@ button {
 .side_btn:checked ~ .side_bar {
   z-index: 11;
   opacity: 1;
+  border-top: 1px solid #ddd;
 }
 .side_btn:checked ~ .side_bar ul {
   transform: translateX(0);

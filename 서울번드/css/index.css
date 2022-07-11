@@ -54,7 +54,9 @@ body {
 }
 
 .product_btns .active {
-  background: var(--ivory);
+  background: var(--brown);
+  border: 1px solid var(--brown);
+  color: white;
 }
 
 .product_btns button {
@@ -225,7 +227,7 @@ body {
 
 .project_container {
   position: relative;
-  width: 1000px;
+  width: 90%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -259,8 +261,10 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(3px);
   transition: all 0.4s;
+  overflow: hidden;
+  height: 757px;
 }
 
 .inner_contents .content {
@@ -314,6 +318,48 @@ body {
   border-bottom: 1px solid #333;
 }
 
+.mobile_project {
+  margin-bottom: 60px;
+}
+
+.mobile_project h2 {
+  text-align: center;
+  font-family: "GowunDodum-Regular";
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.mop_wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.mop_bg {
+  width: 100%;
+  filter: blur(2px);
+  overflow: hidden;
+}
+
+.mop_bg img {
+  width: 100%;
+  display: block;
+}
+
+.mop_items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 10px 0;
+}
+
 /*  작가  */
 
 .artist {
@@ -355,10 +401,10 @@ body {
 
 .artist_bg > img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   display: block;
   filter: blur(0.5rem);
+  overflow: hidden;
 }
 
 .artist_bg .artist_pd {
@@ -394,9 +440,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
   transition: all 0.3s;
   opacity: 0;
+  backdrop-filter: blur(5px);
 }
 
 .artist_cover p {
@@ -446,10 +493,13 @@ body {
   border: 1px solid #333;
   background: transparent;
   padding: 0 20px;
+  cursor: pointer;
 }
 
 .taste_btns .active {
-  background: var(--ivory);
+  background: var(--brown);
+  border: 1px solid var(--brown);
+  color: white;
 }
 
 .taste .swiper-slide {
@@ -955,6 +1005,11 @@ body {
 
   .main {
     margin: 0;
+    margin-bottom: 60px;
+  }
+
+  .mobile_project {
+    display: none;
   }
 
   .project {
@@ -1018,5 +1073,21 @@ body {
 
   .promotion .slide_text {
     width: 40%;
+  }
+
+  .promotion .swiper-button-prev {
+    left: 32%;
+  }
+  .promotion .swiper-pagination.swiper-pagination-bullets {
+    left: 15%;
+  }
+  .promotion .swiper-button-prev::after,
+  .promotion .swiper-button-next::after {
+    font-size: 32px;
+  }
+}
+@media all and (min-width: 1261px) {
+  .main {
+    max-width: none;
   }
 }

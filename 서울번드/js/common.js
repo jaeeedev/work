@@ -20,3 +20,17 @@ lnbLists.forEach((li) =>
     return;
   })
 );
+
+window.addEventListener(
+  "scroll",
+  () => {
+    const sideBar = document.querySelector(".side_bar");
+    if (window.pageYOffset >= 64) {
+      sideBar.classList.add("fixed");
+    } else {
+      sideBar.classList.remove("fixed");
+      return;
+    }
+  },
+  { passive: true }
+);

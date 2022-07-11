@@ -6,21 +6,21 @@ background.addEventListener("click", (e) => {
   input.click();
 });
 
-const quantityChangeBox = document.querySelector(".quantity_change");
+// const quantityChangeBox = document.querySelector(".quantity_change");
 
-const quantityChange = (e) => {
-  const plus = quantityChangeBox.querySelector(".quantity_plus");
-  const substract = quantityChangeBox.querySelector(".quantity_substract");
-  const value = quantityChangeBox.querySelector(".current_quantity");
-  if (e.target === plus) {
-    if (value.value >= 10) return;
-    value.value++;
-  } else if (e.target === substract) {
-    if (value.value <= 1) return;
-    value.value--;
-  }
-};
-quantityChangeBox.addEventListener("click", quantityChange);
+// const quantityChange = (e) => {
+//   const plus = quantityChangeBox.querySelector(".quantity_plus");
+//   const substract = quantityChangeBox.querySelector(".quantity_substract");
+//   const value = quantityChangeBox.querySelector(".current_quantity");
+//   if (e.target === plus) {
+//     if (value.value >= 10) return;
+//     value.value++;
+//   } else if (e.target === substract) {
+//     if (value.value <= 1) return;
+//     value.value--;
+//   }
+// };
+// quantityChangeBox.addEventListener("click", quantityChange);
 
 const openBtn = document.querySelector(".open");
 const closeBtn = document.querySelector(".close");
@@ -80,13 +80,6 @@ const detailContent = document.querySelector(".detail_content");
 window.addEventListener(
   "scroll",
   () => {
-    const sideBar = document.querySelector(".side_bar");
-    if (window.pageYOffset >= 64) {
-      sideBar.classList.add("fixed");
-    } else {
-      sideBar.classList.remove("fixed");
-    }
-
     if (window.pageYOffset >= detailContent.getBoundingClientRect().top) {
       fixedNav.classList.add("fixed");
     } else {
@@ -103,13 +96,21 @@ let orderItems = [
   {
     option: "오렌지",
     price: 28000,
+    count: 1,
   },
   {
     option: "핑크",
     price: 31000,
+    count: 1,
   },
-  { option: "블루", price: 28000 },
+  {
+    option: "블루",
+    price: 28000,
+    count: 1,
+  },
 ];
+let orderOptions = [];
+let totalAmount = 0;
 
 const selectOption = document.querySelector(".order_option_content select");
 
@@ -121,44 +122,86 @@ orderItems
   .join("");
 selectOption.innerHTML = options;
 
-function changePrice() {
-  const totalPrice = document.querySelector(".total_price");
-  const optionPrice = document.querySelector(".data-price");
-  optionPrice.textContent = orderItems[0].price;
+function addItem() {
+  const index = selectOption.options.selectedIndex - 1; //option 제일 첫 요소가 placeholder용이라서 제외
+  orderOptions.push(orderItems[index]);
 }
-changePrice();
+function calcTotal() {
+  totalAmount = orderOptions.reduce((acc, cur) => {
+    return acc + cur.price;
+  }, 0);
+  const totalPrice = document.querySelector(".total_price");
+  totalPrice.textContent = totalAmount;
+}
+function writeItem() {
+  const totalBoxContents =
+    orderOptions
+      .map((item, index) => {
+        return `<div class="total_item" data-index="${index}">
+      <span class="item_name"
+      >[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵</span
+    >
+    <div class="item_info">
+      <span class="item_option">- ${item.option}</span>
+      <div>
+        <span class="data-price">${item.price}</span>
+        <span class="delete_item"
+          ><i class="fa-solid fa-xmark" data-index="${index}"></i
+        ></span>
+      </div>
+    </div>
+    <div class="quantity_change">
+      <button class="quantity_substract">-</button>
+      <input
+        class="current_quantity"
+        type="number"
+        min="1"
+        max="10"
+        value="1"
+      />
+      <button class="quantity_plus">+</button>
+    </div>
+      </div>`;
+      })
+      .join("") +
+    `<div class="total_price_box">
+    <span class="total_title">총 상품금액</span>
+    <span class="total_price">56000</span>
+  </div>`;
 
-let orderContent = "";
-orderItems.map((item) => {
-  orderContent += `<div class="total_item">
-<span class="item_name"
-  >[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵</span
->
-<div class="item_info">
-  <span class="item_option">- ${item.option}</span>
-  <div>
-    <span class="data-price">${item.price}</span>
-    <span class="delete_item"
-      ><i class="fa-solid fa-xmark"></i
-    ></span>
-  </div>
-</div>
-<div class="quantity_change">
-  <button class="quantity_substract">-</button>
-  <input
-    class="current_quantity"
-    type="number"
-    min="1"
-    max="10"
-    value="2"
-  />
-  <button class="quantity_plus">+</button>
-</div>
-</div>`;
+  const totalBox = document.querySelector(".total_box");
+  totalBox.innerHTML = totalBoxContents;
+}
+let totalItems;
+let deleteBtns;
+//옵션 선택하면 -> 아이템 추가되고 -> 총계 연산하고 -> 화면에 그려짐
+selectOption.addEventListener("input", () => {
+  const index = selectOption.options.selectedIndex;
+  let stop = false;
+  if (selectOption.options[0].selected) return;
+
+  orderOptions.map((el) => {
+    if (el.option === selectOption.options[index].textContent) {
+      stop = true;
+    }
+  });
+
+  if (stop) return;
+  addItem();
+  writeItem();
+  calcTotal();
+  totalItems = document.querySelectorAll(".total_item");
+  deleteBtns = document.querySelectorAll(".delete_item");
+  deleteBtns.forEach((btn) => {
+    btn.addEventListener("click", deleteItem);
+  });
 });
-function addItem() {}
 
-selectOption.addEventListener("change", (e) => {});
+//변화 발생하면 -> 변동사항 발생하고 -> 총계 연산하고 -> 다시 화면에 그려짐(변화의 경우 -> input 수량 변경 / 요소 삭제)
+
+function changeAmount() {}
+
+function deleteItem(e) {}
 
 //상품 후기
 
