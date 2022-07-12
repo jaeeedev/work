@@ -14,12 +14,14 @@ const quantity = document.querySelectorAll(".product_quantity");
 //합계는 당근 리듀스지
 
 const checkAll = document.querySelector("#check_all");
+const itemCheckBox = document.querySelectorAll(".item_check");
 
 checkAll.addEventListener("change", () => {
   const allInputs = document.querySelectorAll(".item_box input");
   if (checkAll.checked) {
     allInputs.forEach((input) => (input.checked = true));
   } else {
+    allInputs.forEach((input) => (input.checked = false));
   }
 });
 

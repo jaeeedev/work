@@ -138,6 +138,31 @@ new Swiper(".best_slide", {
   },
 });
 
+//모바일 프로젝트
+let current = 0;
+let visible = false;
+
+setInterval(() => {
+  const mopContents = document.querySelectorAll(".mop_contents");
+
+  // if (visible) {
+  //   mopContents[0].style.opacity = 0;
+  //   visible = !visible;
+  // } else {
+  //   mopContents[0].style.opacity = 1;
+  //   visible = !visible;
+  // }
+
+  //length 받아서 하면 계속 실행되네 뭐지??
+  if (current <= 2) {
+    for (let i = 0; i < mopContents.length; i++) {
+      mopContents[i].style.opacity = 0;
+    }
+    mopContents[current].style.opacity = 1;
+    current++;
+  }
+}, 2000);
+
 //작가
 
 const artistPdBox = document.querySelector(".artist_product");

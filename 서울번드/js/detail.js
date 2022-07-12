@@ -6,22 +6,6 @@ background.addEventListener("click", (e) => {
   input.click();
 });
 
-// const quantityChangeBox = document.querySelector(".quantity_change");
-
-// const quantityChange = (e) => {
-//   const plus = quantityChangeBox.querySelector(".quantity_plus");
-//   const substract = quantityChangeBox.querySelector(".quantity_substract");
-//   const value = quantityChangeBox.querySelector(".current_quantity");
-//   if (e.target === plus) {
-//     if (value.value >= 10) return;
-//     value.value++;
-//   } else if (e.target === substract) {
-//     if (value.value <= 1) return;
-//     value.value--;
-//   }
-// };
-// quantityChangeBox.addEventListener("click", quantityChange);
-
 const openBtn = document.querySelector(".open");
 const closeBtn = document.querySelector(".close");
 openBtn.addEventListener("click", () => {
@@ -99,7 +83,7 @@ let orderItems = [
     count: 1,
   },
   {
-    option: "핑크",
+    option: "핑크 (+3000)",
     price: 31000,
     count: 1,
   },
@@ -109,6 +93,7 @@ let orderItems = [
     count: 1,
   },
 ];
+let set = new Set();
 let orderOptions = [];
 let totalAmount = 0;
 
@@ -124,7 +109,9 @@ selectOption.innerHTML = options;
 
 function addItem() {
   const index = selectOption.options.selectedIndex - 1; //option 제일 첫 요소가 placeholder용이라서 제외
-  orderOptions.push(orderItems[index]);
+  set.add(orderItems[index]); //중복 방지용
+  orderOptions = [...set];
+  if (orderItems.length === orderOptions.length) return;
 }
 function calcTotal() {
   totalAmount = orderOptions.reduce((acc, cur) => {
@@ -136,7 +123,7 @@ function calcTotal() {
 function writeItem() {
   const totalBoxContents =
     orderOptions
-      .map((item, index) => {
+      .map((item) => {
         return `<div class="total_item">
       <span class="item_name"
       >[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵</span
@@ -154,10 +141,11 @@ function writeItem() {
       <button class="quantity_substract">-</button>
       <input
         class="current_quantity"
-        type="number"
+        type="text"
+        readonly="true"
         min="1"
         max="10"
-        value="1"
+        value="${item.count}"
       />
       <button class="quantity_plus">+</button>
     </div>
@@ -173,42 +161,25 @@ function writeItem() {
   totalBox.innerHTML = totalBoxContents;
 }
 let totalItems;
-let deleteBtns;
+
 //옵션 선택하면 -> 아이템 추가되고 -> 총계 연산하고 -> 화면에 그려짐
-selectOption.addEventListener("input", () => {
-  const index = selectOption.options.selectedIndex;
-  let stop = false;
+
+selectOption.addEventListener("change", () => {
   if (selectOption.options[0].selected) return;
 
-  orderOptions.map((el) => {
-    if (el.option === selectOption.options[index].textContent) {
-      stop = true;
-    }
-  });
-
-  if (stop) return;
   addItem();
   writeItem();
   calcTotal();
+
   totalItems = document.querySelectorAll(".total_item");
-  deleteBtns = document.querySelectorAll(".delete_item");
-  totalItems.forEach((btn, i) => {
+
+  totalItems.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const substract = btn.querySelector(".quantity_substract");
       const plus = btn.querySelector(".quantity_plus");
       const countInput = btn.querySelector(".current_quantity");
-      if (e.target === substract) {
-        if (countInput.value <= 1) return;
-        countInput.value--;
-        orderOptions[i].count = countInput.value;
-        calcTotal();
-      } else if (e.target === plus) {
-        if (countInput.value >= 10) return;
-        countInput.value++;
-        orderOptions[i].count = countInput.value;
-        console.log(orderOptions);
-        calcTotal();
-      }
+      const thisTotalPrice = btn.querySelector(".data-price");
+      const deleteBtn = btn.querySelector(".delete_item i");
     });
   });
 });
@@ -222,6 +193,23 @@ function deleteItem(e) {}
 //상품 후기
 
 //리뷰 영역
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    console.log(input.files);
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      document.querySelector(
+        ".thumbnail_box"
+      ).innerHTML = `<img class="preview" alt="" src="" />`;
+
+      document.querySelector(".preview").src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    document.querySelector(".preview").src = "";
+  }
+}
 
 //리뷰 개수
 const reviews = document.querySelectorAll(".review_box");

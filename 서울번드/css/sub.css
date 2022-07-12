@@ -1,5 +1,6 @@
 .cart {
   margin: 10px;
+  margin-bottom: 100px;
 }
 
 .cart h2 {
@@ -252,6 +253,7 @@ input[type="checkbox"] {
   .cart {
     margin: 10px;
     margin-top: 60px;
+    margin-bottom: 150px;
   }
 
   .item_detail .img_box {
@@ -273,5 +275,6 @@ input[type="checkbox"] {
   .cart {
     max-width: 1260px;
     margin: 60px auto;
+    margin-bottom: 150px;
   }
 }
