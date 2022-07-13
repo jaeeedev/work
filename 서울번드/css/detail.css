@@ -291,6 +291,17 @@
   cursor: pointer;
 }
 
+.writer_input {
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  padding: 6px;
+  padding-left: 10px;
+}
+.writer_input:focus {
+  outline: none;
+  border: 1px solid var(--green);
+}
+
 .review_write_box textarea {
   width: 100%;
   margin-top: 10px;
@@ -365,6 +376,10 @@
   border-bottom: 1px solid #ccc;
 }
 
+.thumbnail_box {
+  margin-bottom: 10px;
+}
+
 .thumbnail_box img {
   width: 100px;
   height: 100px;
@@ -406,6 +421,16 @@
 .review_date {
   font-size: 14px;
   color: #999;
+}
+
+.star_box {
+  display: flex;
+}
+
+.star {
+  font-size: 23px;
+  cursor: default;
+  color: var(--green);
 }
 
 /* 큐엔에이 상품문의 */

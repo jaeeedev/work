@@ -353,14 +353,37 @@ body {
 
 .mop_contents {
   position: absolute;
-  width: 70%;
+  width: 65%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-  transition: all 0.4s;
+  transition: all 1s 2s;
   /* opacity: 0; */
+}
+
+.mop_contents:hover .mop_cover {
+  opacity: 1;
+}
+
+.mop_cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  padding: 20px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;
+  transition: all 0.4s;
 }
 
 .mop_contents img {

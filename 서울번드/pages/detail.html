@@ -267,7 +267,7 @@
           <div class="total_box">
             <div class="total_price_box">
               <span class="total_title">총 상품금액</span>
-              <span class="total_price">56000</span>
+              <span class="total_price">0</span>
             </div>
           </div>
           <div class="order_btns">
@@ -283,7 +283,7 @@
       <div class="nav_bar">
         <div class="go_detail on"><a href="#detail">상품상세</a></div>
         <div class="go_review">
-          <a href="#review">상품후기<span>37</span></a>
+          <a href="#review">상품후기<span class="review_count">37</span></a>
         </div>
         <div class="go_qna"><a href="#qna">상품문의</a></div>
       </div>
@@ -379,12 +379,24 @@
       <div class="review_write_box">
         <div class="file_box" onchange="">
           <div class="fake_input"></div>
-          <input type="file" onchange="readURL(this);" />
+          <input
+            type="file"
+            accept="image/*"
+            onchange="readURL();"
+            class="file_input"
+          />
         </div>
         <div class="thumbnail_box">
           <!-- <img id="preview" alt="" /> -->
         </div>
+        <div class="star_box">
+          <span class="star">☆☆☆☆☆</span>
+        </div>
+        <div class="writer_info_box">
+          <input type="text" class="writer_input" />
+        </div>
         <textarea
+          class="review_write_text"
           style="resize: none"
           placeholder="자세한 후기는 다른 고객의 구매에 많은 도움이 되며, 문제의 소지가 될 수 있는 내용을 작성 시 검토 후 비공개 조치될 수 있습니다. 반품/환불 문의는 1:1 문의로 가능합니다."
         ></textarea>
@@ -394,25 +406,27 @@
         <button class="review_filter_btn on">전체 리뷰</button>
         <button class="review_filter_btn">사진 리뷰</button>
       </div>
-      <div class="review_box">
-        <div class="review_writer">
-          <span class="writer_name_title">작성자</span
-          ><span class="writer_name">박지은</span>
-        </div>
+      <div class="review_wrapper">
+        <div class="review_box">
+          <div class="review_writer">
+            <span class="writer_name_title">작성자</span
+            ><span class="writer_name">박지은</span>
+          </div>
 
-        <div class="review_img">
-          <img src="../img/review01.jpg" alt="리뷰 이미지" />
-          <img src="../img/review02.jpg" alt="리뷰 이미지" />
-        </div>
+          <div class="review_img">
+            <img src="../img/review01.jpg" alt="리뷰 이미지" />
+            <img src="../img/review02.jpg" alt="리뷰 이미지" />
+          </div>
 
-        <div class="review_text">
-          <span class="review_star">★★★★★</span>
-          <p>
-            디자인과 색상이 아주 잘 어우러집니다. 묵직한 느낌이 너무 좋아요.
-            트레이로 되어있어서 다른 과일과 주전부리를 함께 보관할 수 있다는
-            점이 특히 장점입니다.
-          </p>
-          <span class="review_date">2022-07-05</span>
+          <div class="review_text">
+            <span class="review_star">★★★★★</span>
+            <p>
+              디자인과 색상이 아주 잘 어우러집니다. 묵직한 느낌이 너무 좋아요.
+              트레이로 되어있어서 다른 과일과 주전부리를 함께 보관할 수 있다는
+              점이 특히 장점입니다.
+            </p>
+            <span class="review_date">2022-07-05</span>
+          </div>
         </div>
       </div>
     </section>

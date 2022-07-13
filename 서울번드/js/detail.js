@@ -1,3 +1,12 @@
+let reviewData = [];
+
+async function init() {
+  await fetchReview();
+  await writeReview();
+  changeBadge();
+}
+init();
+
 const background = document.querySelector(".side_bar");
 
 background.addEventListener("click", (e) => {
@@ -21,12 +30,6 @@ closeBtn.addEventListener("click", () => {
 });
 
 const writerName = document.querySelector(".writer_name");
-
-const lastString = writerName.textContent.charAt(
-  writerName.textContent.length - 1
-);
-
-writerName.textContent = writerName.textContent.replace(lastString, "*");
 
 const swiper = new Swiper(".relative_slide", {
   loop: true,
@@ -135,7 +138,7 @@ function writeItem() {
     <div class="item_info">
       <span class="item_option">- ${item.option}</span>
       <div>
-        <span class="data-price">${item.price}</span>
+        <span class="data-price">${item.price * item.count}</span>
         <span class="delete_item" data-id=${item.id}
           ><i class="fa-solid fa-xmark"></i
         ></span>
@@ -181,19 +184,22 @@ function writeItem() {
       } else if (e.target === plus) {
         if (countInput.value >= 10) return;
         countInput.value++;
-        //input 의 value는 orderoptions의 count값으로 렌더링되고있어서 count 잡아줘야하는데,,, 참조 타입이라 삭제할때 골치라 어떻게 짜야할지가 고민
-        //삭제할때 카운트 초기화시켜
         orderOptions[i].count++;
+        thisTotalPrice.textContent =
+          orderOptions[i].price * orderOptions[i].count;
+        calcTotal();
       } else if (e.target === substract) {
         if (countInput.value <= 1) return;
         countInput.value--;
+        orderOptions[i].count--;
+        thisTotalPrice.textContent =
+          orderOptions[i].price * orderOptions[i].count;
+        calcTotal();
       }
     });
   });
 }
 let totalItems;
-
-//옵션 선택하면 -> 아이템 추가되고 -> 총계 연산하고 -> 화면에 그려짐
 
 selectOption.addEventListener("change", () => {
   if (selectOption.options[0].selected) return;
@@ -202,10 +208,6 @@ selectOption.addEventListener("change", () => {
   writeItem();
   calcTotal();
 });
-
-//변화 발생하면 -> 변동사항 발생하고 -> 총계 연산하고 -> 다시 화면에 그려짐(변화의 경우 -> input 수량 변경 / 요소 삭제)
-
-function changeAmount() {}
 
 function deleteItem(e, i) {
   const filter = orderOptions.filter(
@@ -218,14 +220,16 @@ function deleteItem(e, i) {
   calcTotal();
 }
 
-//상품 후기
+//장바구니로 보내기
+//(장바구니로 이동할거냐는 모달 필요,
+//근데 오버라이드는 어케하지 안겹치게)
 
 //리뷰 영역
 
-function readURL(input) {
-  if (input.files && input.files[0]) {
-    // console.log(input.files);
-    var reader = new FileReader();
+function readURL() {
+  const file = document.querySelector(".file_input");
+  if (file.files && file.files[0]) {
+    const reader = new FileReader();
     reader.onload = function (e) {
       document.querySelector(
         ".thumbnail_box"
@@ -233,20 +237,70 @@ function readURL(input) {
 
       document.querySelector(".preview").src = e.target.result;
     };
-    reader.readAsDataURL(input.files[0]);
+    reader.readAsDataURL(file.files[0]);
   } else {
     document.querySelector(".preview").src = "";
   }
 }
 
+const star = document.querySelector(".star");
+let starRate = 0;
+
+function mouseMoveHandler(e) {
+  starRate =
+    5 - Math.floor((star.getBoundingClientRect().right - e.pageX) / 19);
+  e.target.textContent = "★".repeat(starRate) + "☆".repeat(5 - starRate);
+}
+let starMoveHandler = star.addEventListener("mousemove", mouseMoveHandler);
+
+let clicked = false;
+let starPickHandler = star.addEventListener("click", (e) => {
+  if (!clicked) {
+    clicked = true;
+    star.removeEventListener("mousemove", mouseMoveHandler);
+    starRate =
+      5 - Math.floor((star.getBoundingClientRect().right - e.pageX) / 19);
+    e.target.textContent = "★".repeat(starRate) + "☆".repeat(5 - starRate);
+  } else if (
+    clicked &&
+    starRate ===
+      5 - Math.floor((star.getBoundingClientRect().right - e.pageX) / 19)
+  ) {
+    star.addEventListener("mousemove", mouseMoveHandler);
+    clicked = false;
+  }
+});
+
+function clearInput() {
+  location.reload();
+}
+
+const writeBtn = document.querySelector(".write_btn");
+writeBtn.addEventListener("click", async () => {
+  await fetchData();
+  await fetchReview();
+  await writeReview();
+  await clearInput();
+});
+
 async function fetchData() {
+  let today = new Date();
+  let year = today.getFullYear(); // 년도
+  let month = today.getMonth() + 1; // 월
+  let date = today.getDate(); // 날짜
+  const writeDate = year + "/" + month + "/" + date;
+
+  const reviewText = document.querySelector(".review_write_text");
+  const writerName = document.querySelector(".writer_input").value;
+
   await fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
     method: "POST",
     body: JSON.stringify({
-      //imgSrc : 사진주소
-      //star: 별점
-      //
-      test: "Hi",
+      imgSrc: document.querySelector(".preview").src,
+      star: starRate,
+      date: writeDate,
+      text: reviewText.value,
+      writer: writerName,
     }),
   });
 }
@@ -255,17 +309,54 @@ async function fetchReview() {
   const response = await fetch(
     "https://shop-aac53-default-rtdb.firebaseio.com/orders.json"
   );
-  const data = await response.json();
-  console.log(data);
+  reviewData = await response.json();
 }
 
-// fetchData();
-// fetchReview();
+let reviewArr = [];
+function writeReview() {
+  //반복문으로 객체 돌려서 배열에 넣어주고
+  //그 배열을 다시 큰 문자열로 만들어서 리뷰래퍼 안에 넣어준다
+  for (let rv in reviewData) {
+    reviewArr.push(reviewData[rv]);
+  }
+
+  const reviewContents = reviewArr
+    .map(
+      (rv) => `
+  <div class="review_box">
+  <div class="review_writer">
+    <span class="writer_name_title">작성자</span
+    ><span class="writer_name">${rv.writer}</span>
+  </div>
+
+  <div class="review_img">
+    <img src=${rv.imgSrc} alt="리뷰 이미지" />
+  </div>
+
+  <div class="review_text">
+    <span class="review_star">${"★".repeat(rv.star)}</span>
+    <p>
+     ${rv.text}
+    </p>
+    <span class="review_date">${rv.date}</span>
+  </div>
+</div>`
+    )
+    .join("");
+
+  const reviewWrapper = document.querySelector(".review_wrapper");
+  reviewWrapper.innerHTML = reviewContents;
+}
 
 //리뷰 개수
-const reviews = document.querySelectorAll(".review_box");
-const navReview = document.querySelector(".go_review a span");
-navReview.textContent = `${reviews.length}`;
+function changeBadge() {
+  const navReview = document.querySelector(".review_count");
+  const rateAmount = document.querySelector(".rate_amount");
+  const rateNumber = document.querySelector(".rate_number");
+  navReview.textContent = `${reviewArr.length}`;
+  rateAmount.textContent = `${reviewArr.length}`;
+  //평점 계산의 난....
+}
 
 //글번호
 

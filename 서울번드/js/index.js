@@ -142,31 +142,45 @@ new Swiper(".best_slide", {
 let current = 0;
 let visible = false;
 
-setInterval(() => {
+function opacityHandler() {
   const mopContents = document.querySelectorAll(".mop_contents");
 
-  // if (visible) {
-  //   mopContents[0].style.opacity = 0;
-  //   visible = !visible;
-  // } else {
-  //   mopContents[0].style.opacity = 1;
-  //   visible = !visible;
-  // }
-
-  //length 받아서 하면 계속 실행되네 뭐지??
+  //length로 하면 안멈춰서 일단 수를 넣음
   if (current <= 2) {
     for (let i = 0; i < mopContents.length; i++) {
       mopContents[i].style.opacity = 0;
+      mopContents[i].style.zIndex = 0;
     }
     mopContents[current].style.opacity = 1;
+    mopContents[current].style.zIndex = 1;
+    current++;
+  } else {
+    current = 0;
+    for (let i = 0; i < mopContents.length; i++) {
+      mopContents[i].style.opacity = 0;
+      mopContents[i].style.zIndex = 0;
+    }
+    mopContents[current].style.opacity = 1;
+    mopContents[current].style.zIndex = 1;
     current++;
   }
-}, 2000);
+}
+
+let opacitySlide = setInterval(opacityHandler, 3000);
+
+const mopArea = document.querySelector(".mop_wrapper");
+
+mopArea.addEventListener("mouseover", (e) => {
+  clearInterval(opacitySlide);
+});
+
+mopArea.addEventListener("mouseout", () => {
+  opacitySlide = setInterval(opacityHandler, 3000);
+});
 
 //작가
 
 const artistPdBox = document.querySelector(".artist_product");
-console.log(window.getComputedStyle(artistPdBox).height);
 
 //번더의 취향
 
@@ -229,8 +243,6 @@ const cloneLast = slideNodes[slideNodes.length - 1].cloneNode(true);
 let currentMove = 0;
 eventSlide.append(cloneFirst);
 eventSlide.insertBefore(cloneLast, slideNodes[0]);
-
-console.log(currentMove);
 
 setInterval(() => {
   currentMove += 60;
