@@ -79,6 +79,7 @@ window.addEventListener(
 );
 
 //오더 영역
+
 let orderItems = [
   {
     option: "오렌지",
@@ -222,14 +223,48 @@ function deleteItem(e, i) {
 
 //장바구니로 보내기
 //(장바구니로 이동할거냐는 모달 필요,
-//근데 오버라이드는 어케하지 안겹치게)
+
+const cartBtn = document.querySelector(".cart_btn");
+const cartModal = document.querySelector(".cart_modal");
+cartBtn.addEventListener("click", () => {
+  if (orderOptions.length <= 0) {
+    document.querySelector(".alert_modal").classList.add("show");
+
+    setTimeout(() => {
+      document.querySelector(".alert_modal").classList.remove("show");
+    }, 1000);
+    return;
+  }
+  cartModal.classList.add("show");
+});
+document.querySelector(".stay").addEventListener("click", () => {
+  cartModal.classList.remove("show");
+});
+
+async function fetchToCart() {
+  await fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
+    method: "POST",
+    body: JSON.stringify({
+      items: orderOptions,
+    }),
+  });
+}
 
 //리뷰 영역
+
+const openReview = document.querySelector(".write_review");
+const reviewArea = document.querySelector(".review_write_box");
+
+openReview.addEventListener("click", () => {
+  reviewArea.classList.add("open_box");
+});
 
 function readURL() {
   const file = document.querySelector(".file_input");
   if (file.files && file.files[0]) {
     const reader = new FileReader();
+    reader.readAsDataURL(file.files[0]);
+    console.log(file.files);
     reader.onload = function (e) {
       document.querySelector(
         ".thumbnail_box"
@@ -237,7 +272,6 @@ function readURL() {
 
       document.querySelector(".preview").src = e.target.result;
     };
-    reader.readAsDataURL(file.files[0]);
   } else {
     document.querySelector(".preview").src = "";
   }
@@ -272,11 +306,18 @@ let starPickHandler = star.addEventListener("click", (e) => {
 });
 
 function clearInput() {
-  location.reload();
+  reviewArea.reset();
+  starRate = 0;
+  star.textContent = "☆☆☆☆☆";
 }
 
-const writeBtn = document.querySelector(".write_btn");
-writeBtn.addEventListener("click", async () => {
+reviewArea.addEventListener("submit", async (e) => {
+  if (star.textContent === "☆☆☆☆☆") {
+    alert("별점을 입력해주세요.");
+    e.preventDefault();
+    return;
+  }
+
   await fetchData();
   await fetchReview();
   await writeReview();
@@ -289,20 +330,34 @@ async function fetchData() {
   let month = today.getMonth() + 1; // 월
   let date = today.getDate(); // 날짜
   const writeDate = year + "/" + month + "/" + date;
+  console.log(writeDate);
 
   const reviewText = document.querySelector(".review_write_text");
   const writerName = document.querySelector(".writer_input").value;
 
-  await fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
-    method: "POST",
-    body: JSON.stringify({
-      imgSrc: document.querySelector(".preview").src,
-      star: starRate,
-      date: writeDate,
-      text: reviewText.value,
-      writer: writerName,
-    }),
-  });
+  if (document.querySelector(".file_input").value) {
+    await fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
+      method: "POST",
+      body: JSON.stringify({
+        imgSrc: document.querySelector(".preview").src,
+        star: starRate,
+        date: writeDate,
+        text: reviewText.value,
+        writer: writerName,
+      }),
+    });
+  } else {
+    await fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
+      method: "POST",
+      body: JSON.stringify({
+        imgSrc: null,
+        star: starRate,
+        date: writeDate,
+        text: reviewText.value,
+        writer: writerName,
+      }),
+    });
+  }
 }
 
 async function fetchReview() {
@@ -330,7 +385,7 @@ function writeReview() {
   </div>
 
   <div class="review_img">
-    <img src=${rv.imgSrc} alt="리뷰 이미지" />
+  ${rv.imgSrc ? ` <img src=${rv.imgSrc} alt="리뷰 이미지" />` : ``}
   </div>
 
   <div class="review_text">
@@ -355,8 +410,46 @@ function changeBadge() {
   const rateNumber = document.querySelector(".rate_number");
   navReview.textContent = `${reviewArr.length}`;
   rateAmount.textContent = `${reviewArr.length}`;
-  //평점 계산의 난....
+  //평점 계산
+  let sumRate = 0;
+
+  for (let rv of reviewArr) {
+    sumRate += rv.star;
+  }
+  let totalRate = sumRate / reviewArr.length;
+
+  rateNumber.textContent = totalRate.toFixed(1);
 }
+
+//리뷰 필터
+const showAllBtn = document.querySelector(".review_all_btn");
+const showImgBtn = document.querySelector(".review_img_btn");
+showAllBtn.addEventListener("click", () => {
+  const allReviews = document.querySelectorAll(".review_box");
+
+  //비동기라 다 읽어온 후에 실행해야 하는데 await 붙이기는 애매하고 잘 모르겠다 =,,=
+
+  showImgBtn.classList.remove("on");
+  showAllBtn.classList.add("on");
+
+  for (let review of allReviews) {
+    review.style.display = "block";
+  }
+});
+
+showImgBtn.addEventListener("click", () => {
+  const allReviews = document.querySelectorAll(".review_box");
+  const allReviewImgs = document.querySelectorAll(".review_img img");
+
+  showAllBtn.classList.remove("on");
+  showImgBtn.classList.add("on");
+
+  for (let i = 0; i < allReviews.length; i++) {
+    if (!allReviews[i].contains(allReviewImgs[i])) {
+      allReviews[i].style.display = "none";
+    }
+  }
+});
 
 //글번호
 

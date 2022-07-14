@@ -15,14 +15,19 @@
   <body>
     <header class="header">
       <div class="inner_header">
-        <h1><a href="./index.html">SEOUL BUND</a></h1>
+        <h1>
+          <a href="./index.html"
+            ><a href="../index.html"
+              ><img src="../img/tight_logo.png" alt="모바일 로고" /></a
+          ></a>
+        </h1>
         <div class="menus">
           <div class="header_search">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          <div class="header_cart">
+          <a href="./sub.html" class="header_cart">
             <i class="fa-solid fa-cart-shopping"></i>
-          </div>
+          </a>
           <label class="header_bar" for="side_btn"
             ><i class="fa-solid fa-bars"></i>
           </label>
@@ -125,7 +130,11 @@
 
     <header class="pc_header">
       <div class="inner_pc_header">
-        <h1><a href="../index.html">SEOUL BUND</a></h1>
+        <h1>
+          <a href="../index.html"
+            ><img src="../img/tight_logo_white.png" alt=""
+          /></a>
+        </h1>
         <ul class="menus">
           <li class="category">
             <div class="lnb_menu_title"><a href="#!">베스트</a></div>
@@ -214,7 +223,7 @@
         <ul class="tools">
           <li><i class="fa-solid fa-magnifying-glass"></i></li>
           <li>
-            <a href="#!"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="./sub.html"><i class="fa-solid fa-cart-shopping"></i></a>
             <div class="badge"><span class="badge_count"></span></div>
           </li>
         </ul>
@@ -310,19 +319,22 @@
         <div class="pc_bill">
           <div class="bill_calc">
             <div class="bill_total">
-              <span>총 상품금액</span>
-              <div class="total_number">
-                <span>28,000</span>
-                <span>+ 4000</span>
+              <div class="total_product_price">
+                <span class="total_title">총 상품금액</span>
+                <span class="total_number">28000</span>
+              </div>
+              <div class="ship_price">
+                <span class="total_title">배송비</span>
+                <span class="total_number">4000</span>
               </div>
             </div>
             <div class="bill_expected">
-              <div>결제 예정 금액</div>
-              <span>32,000</span>
+              <span class="total_title">결제 예정 금액</span>
+              <span class="total_bill_price">32,000</span>
             </div>
           </div>
           <button class="buy_immd">바로구매</button>
-          <div class="go_back">쇼핑 계속하기</div>
+          <div class="go_back"><a href="../index.html"></a>쇼핑 계속하기</div>
         </div>
       </div>
     </section>
@@ -381,11 +393,68 @@
       </div>
     </footer>
     <footer class="pc_footer">
-      <div class="pc_footer_top"></div>
+      <div class="pc_footer_top">
+        <div>
+          <div class="pc_support">
+            <span class="pc_footer_title">고객지원센터</span>
+            <p>070-4409-0689</p>
+          </div>
+          <div>
+            <p>
+              영업시간<br />
+              월-금<br />
+              오전 10:00 ~ 오후 17:00 / 주말,공휴일 쉼<br />
+              점심시간<br />
+              12:30 ~ 13:30
+            </p>
+            <br />
+          </div>
+
+          <div>
+            <span>계좌 안내</span>
+            <p>우리은행 1005-203-836992</p>
+            <br />
+            <span>예금주 (주)서울번드</span>
+          </div>
+        </div>
+        <div>
+          <span class="pc_footer_title">쇼핑 가이드</span>
+          <ul class="pc_shopping_guide">
+            <li><a href="#!">공지사항</a></li>
+            <li><a href="#!">상품문의</a></li>
+            <li><a href="#!">구매후기</a></li>
+            <li><a href="#!">주문조회</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="pc_footer_title">배송/반품지원센터</span>
+          <p>반품: 서울시 서초구 서리풀4길 준빌딩 1층</p>
+          <p>
+            택배: 롯데택배 1588-2121 (월-금 08:00 ~ 18:00 / 토 09:00 ~ 13:00)
+          </p>
+          <div class="ship_btns">
+            <a href="#"><div>롯데택배</div></a>
+            <a href="#"><div>상품문의</div></a>
+            <a href="#"><div>고객센터</div></a>
+          </div>
+
+          <div class="pc_footer_sns">
+            <span class="pc_footer_title">SNS</span>
+            <div>
+              <a href="#!"><img src="../img/insta_black.png" alt="" /></a>
+              <a href="#!"><img src="../img/facebook_black.png" alt="" /></a>
+              <a href="#!"><img src="../img/blog_black.png" alt="" /></a>
+              <a href="#!"><img src="../img/pinterest_black.png" alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="pc_footer_bottom">
         <div class="pc_footer_inner">
           <div class="pc_footer_logo">
-            <span>SEOUL BUND</span>
+            <span>
+              <img src="../img/tight_logo_white.png" alt="" />
+            </span>
           </div>
           <div class="footer_company_info">
             <p>회사정보</p>

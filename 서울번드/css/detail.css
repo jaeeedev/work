@@ -160,6 +160,7 @@
   top: 0;
   left: 0;
   transform: translateY(0);
+  z-index: 11;
 }
 
 .nav_bar div a {
@@ -222,9 +223,11 @@
 }
 
 .detail_text {
-  padding: 0 20px;
+  font-size: 14px;
+  padding: 0 30px;
   line-height: 1.5;
   margin-bottom: 30px;
+  font-family: "pretendard", sans-serif;
 }
 
 .detail_view img {
@@ -267,16 +270,22 @@
   border-bottom: 1px solid #ccc;
 }
 
+.review_wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .review_write_box {
-  margin: 20px;
-  height: fit-content;
+  height: 0;
   background: #f3f3f3;
-  padding: 10px;
+  padding: 0 10px;
   overflow: hidden;
 }
 
-.review_write_box.open {
+.review_write_box.open_box {
   height: fit-content;
+  padding: 10px;
+  margin: 20px;
 }
 
 .write_btn {
@@ -318,7 +327,8 @@
   outline: none;
   border: 1px solid var(--green);
 }
-.review_write_box textarea::placeholder {
+.review_write_box textarea::placeholder,
+.writer_input::placeholder {
   color: #bbb;
 }
 
@@ -373,6 +383,7 @@
 .review_box {
   padding-bottom: 10px;
   margin: 20px;
+  margin-bottom: 0;
   border-bottom: 1px solid #ccc;
 }
 
@@ -566,6 +577,64 @@
   z-index: 1111;
 }
 
+/* 모달창 */
+.cart_modal {
+  width: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 1rem;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  display: none;
+}
+
+.cart_modal.show {
+  display: block;
+}
+.modal_text {
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+
+.modal_btns {
+  display: flex;
+  justify-content: space-between;
+}
+.cart_modal a {
+  display: inline-block;
+}
+.cart_modal button {
+  background: #f3f3f3;
+  border: none;
+  padding: 7px 15px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.cart_modal button:last-child {
+  color: white;
+  background: var(--green);
+}
+
+.alert_modal {
+  position: fixed;
+  text-align: center;
+  width: 270px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 30px;
+  font-size: 15px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+  background: white;
+  border-radius: 1rem;
+  display: none;
+}
+.alert_modal.show {
+  display: block;
+}
 @media all and (min-width: 601px) {
   .order_section {
     max-width: 1260px;
@@ -621,6 +690,10 @@
   .detail_content img {
     display: block;
     width: 100%;
+  }
+
+  .detail_text {
+    font-size: 16px;
   }
 
   .close {
@@ -718,6 +791,10 @@
   .review_item_name,
   .review_box {
     margin: 0;
+  }
+
+  .review_box {
+    margin-bottom: 10px;
   }
 
   .review,

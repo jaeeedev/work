@@ -3,8 +3,6 @@ const background = document.querySelector(".side_bar");
 background.addEventListener("click", (e) => {
   const input = document.querySelector(".side_btn");
   if (e.target !== e.currentTarget) return;
-  console.log(e.target);
-  console.log(e.currentTarget);
   input.click();
 });
 
@@ -25,8 +23,14 @@ checkAll.addEventListener("change", () => {
   }
 });
 
-//부하를 최소화하기위해 이번에는 이벤트리스너 막 남발하지 않겟습니다,,,,
-//html에서 같은 값을 보여줄 숫자는 같은 태그로 리팩토링하슈
+//총 금액 계산
+const totalProductPrice = document.querySelector(
+  ".total_product_price .total_number"
+);
+const billPrice = document.querySelector(".total_bill_price");
+billPrice.textContent =
+  totalProductPrice.textContent * 1 +
+  document.querySelector(".ship_price .total_number").textContent * 1;
 
 const cartItems = document.querySelector(".mobile_wrap");
 

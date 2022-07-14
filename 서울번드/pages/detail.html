@@ -21,14 +21,18 @@
   <body>
     <header class="header">
       <div class="inner_header">
-        <h1><a href="../index.html">SEOUL BUND</a></h1>
+        <h1>
+          <a href="../index.html"
+            ><img src="../img/tight_logo.png" alt="모바일 로고"
+          /></a>
+        </h1>
         <div class="menus">
           <div class="header_search">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
-          <div class="header_cart">
+          <a href="./sub.html" class="header_cart">
             <i class="fa-solid fa-cart-shopping"></i>
-          </div>
+          </a href="./sub.html">
           <label class="header_bar" for="side_btn"
             ><i class="fa-solid fa-bars"></i>
           </label>
@@ -131,7 +135,11 @@
 
     <header class="pc_header">
       <div class="inner_pc_header">
-        <h1><a href="../index.html">SEOUL BUND</a></h1>
+        <h1>
+          <a href="../index.html"
+            ><img src="../img/tight_logo_white.png" alt=""
+          /></a>
+        </h1>
         <ul class="menus">
           <li class="category">
             <div class="lnb_menu_title"><a href="#!">베스트</a></div>
@@ -220,7 +228,7 @@
         <ul class="tools">
           <li><i class="fa-solid fa-magnifying-glass"></i></li>
           <li>
-            <a href="#!"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="./sub.html"><i class="fa-solid fa-cart-shopping"></i></a>
             <div class="badge"><span class="badge_count"></span></div>
           </li>
         </ul>
@@ -272,7 +280,9 @@
           </div>
           <div class="order_btns">
             <div><i class="fa-solid fa-heart"></i></div>
-            <div><i class="fa-solid fa-cart-shopping"></i></div>
+            <div class="cart_btn">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
             <div class="order">구매하기</div>
           </div>
         </div>
@@ -376,7 +386,7 @@
         <button class="write_review">리뷰작성</button>
       </div>
 
-      <div class="review_write_box">
+      <form class="review_write_box">
         <div class="file_box" onchange="">
           <div class="fake_input"></div>
           <input
@@ -393,18 +403,25 @@
           <span class="star">☆☆☆☆☆</span>
         </div>
         <div class="writer_info_box">
-          <input type="text" class="writer_input" />
+          <input
+            type="text"
+            class="writer_input"
+            placeholder="닉네임"
+            required
+          />
         </div>
         <textarea
           class="review_write_text"
           style="resize: none"
           placeholder="자세한 후기는 다른 고객의 구매에 많은 도움이 되며, 문제의 소지가 될 수 있는 내용을 작성 시 검토 후 비공개 조치될 수 있습니다. 반품/환불 문의는 1:1 문의로 가능합니다."
+          required
+          minlength="10"
         ></textarea>
         <button class="write_btn">작성</button>
-      </div>
+      </form>
       <div class="review_filter">
-        <button class="review_filter_btn on">전체 리뷰</button>
-        <button class="review_filter_btn">사진 리뷰</button>
+        <button class="review_filter_btn review_all_btn on">전체 리뷰</button>
+        <button class="review_filter_btn review_img_btn">사진 리뷰</button>
       </div>
       <div class="review_wrapper">
         <div class="review_box">
@@ -635,11 +652,68 @@
       </div>
     </footer>
     <footer class="pc_footer">
-      <div class="pc_footer_top"></div>
+      <div class="pc_footer_top">
+        <div>
+          <div class="pc_support">
+            <span class="pc_footer_title">고객지원센터</span>
+            <p>070-4409-0689</p>
+          </div>
+          <div>
+            <p>
+              영업시간<br />
+              월-금<br />
+              오전 10:00 ~ 오후 17:00 / 주말,공휴일 쉼<br />
+              점심시간<br />
+              12:30 ~ 13:30
+            </p>
+            <br />
+          </div>
+
+          <div>
+            <span>계좌 안내</span>
+            <p>우리은행 1005-203-836992</p>
+            <br />
+            <span>예금주 (주)서울번드</span>
+          </div>
+        </div>
+        <div>
+          <span class="pc_footer_title">쇼핑 가이드</span>
+          <ul class="pc_shopping_guide">
+            <li><a href="#!">공지사항</a></li>
+            <li><a href="#!">상품문의</a></li>
+            <li><a href="#!">구매후기</a></li>
+            <li><a href="#!">주문조회</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="pc_footer_title">배송/반품지원센터</span>
+          <p>반품: 서울시 서초구 서리풀4길 준빌딩 1층</p>
+          <p>
+            택배: 롯데택배 1588-2121 (월-금 08:00 ~ 18:00 / 토 09:00 ~ 13:00)
+          </p>
+          <div class="ship_btns">
+            <a href="#"><div>롯데택배</div></a>
+            <a href="#"><div>상품문의</div></a>
+            <a href="#"><div>고객센터</div></a>
+          </div>
+
+          <div class="pc_footer_sns">
+            <span class="pc_footer_title">SNS</span>
+            <div>
+              <a href="#!"><img src="../img/insta_black.png" alt="" /></a>
+              <a href="#!"><img src="../img/facebook_black.png" alt="" /></a>
+              <a href="#!"><img src="../img/blog_black.png" alt="" /></a>
+              <a href="#!"><img src="../img/pinterest_black.png" alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="pc_footer_bottom">
         <div class="pc_footer_inner">
           <div class="pc_footer_logo">
-            <span>SEOUL BUND</span>
+            <span>
+              <img src="../img/tight_logo_white.png" alt="" />
+            </span>
           </div>
           <div class="footer_company_info">
             <p>회사정보</p>
@@ -656,6 +730,23 @@
         </div>
       </div>
     </footer>
+
+    <div class="cart_modal">
+      <div class="modal_text">
+        <p>제품이 장바구니에 담겼습니다.</p>
+      </div>
+      <div class="modal_btns">
+        <a href="sub.html"><button>장바구니로 이동</button></a>
+        <a href="#!"><button class="stay">쇼핑 계속하기</button></a>
+      </div>
+    </div>
+
+    <div class="alert_modal">
+      <p>
+        제품이 선택되지 않았습니다.<br />
+        제품을 추가해주세요.
+      </p>
+    </div>
 
     <script src="../js/common.js"></script>
   </body>

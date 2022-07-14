@@ -234,6 +234,31 @@ tasteBtns.addEventListener("click", (e) => {
   }
 });
 
+const pcTasteBtns = document.querySelector(".taste_toggle_btns");
+pcTasteBtns.addEventListener("click", (e) => {
+  const btn1 = pcTasteBtns.querySelector(".pc_wellness_btn");
+  const btn2 = pcTasteBtns.querySelector(".pc_kitchen_btn");
+
+  const wellness = document.querySelector(".taste_article_box.wellness");
+  const kitchen = document.querySelector(".taste_article_box.kitchen");
+
+  if (e.target === btn1) {
+    btn2.classList.remove("active");
+    kitchen.classList.remove("active");
+
+    btn1.classList.add("active");
+    wellness.classList.add("active");
+  } else if (e.target === btn2) {
+    btn1.classList.remove("active");
+    wellness.classList.remove("active");
+
+    btn2.classList.add("active");
+    kitchen.classList.add("active");
+  } else {
+    return;
+  }
+});
+
 //공지사항 슬라이드
 
 const eventSlide = document.querySelector(".notice_slide");

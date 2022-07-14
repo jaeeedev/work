@@ -654,6 +654,11 @@ body {
   text-overflow: ellipsis;
 }
 
+.pc_artist,
+.pc_taste {
+  display: none;
+}
+
 @media all and (min-width: 450px) {
   .promotion .slide_text {
     display: flex;
