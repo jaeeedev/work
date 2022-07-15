@@ -7,14 +7,6 @@ async function init() {
 }
 init();
 
-const background = document.querySelector(".side_bar");
-
-background.addEventListener("click", (e) => {
-  const input = document.querySelector(".side_btn");
-  if (e.target !== e.currentTarget) return;
-  input.click();
-});
-
 const openBtn = document.querySelector(".open");
 const closeBtn = document.querySelector(".close");
 openBtn.addEventListener("click", () => {
@@ -82,22 +74,28 @@ window.addEventListener(
 
 let orderItems = [
   {
+    title: "[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵",
     option: "오렌지",
     price: 28000,
     count: 1,
     id: "orange",
+    img: document.querySelector(".pd_img img").src,
   },
   {
+    title: "[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵",
     option: "핑크 (+3000)",
     price: 31000,
     count: 1,
     id: "pink",
+    img: document.querySelector(".pd_img img").src,
   },
   {
+    title: "[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵",
     option: "블루",
     price: 28000,
     count: 1,
     id: "blue",
+    img: document.querySelector(".pd_img img").src,
   },
 ];
 
@@ -235,20 +233,12 @@ cartBtn.addEventListener("click", () => {
     }, 1000);
     return;
   }
+  fetchToCart();
   cartModal.classList.add("show");
 });
 document.querySelector(".stay").addEventListener("click", () => {
   cartModal.classList.remove("show");
 });
-
-async function fetchToCart() {
-  await fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
-    method: "POST",
-    body: JSON.stringify({
-      items: orderOptions,
-    }),
-  });
-}
 
 //리뷰 영역
 
@@ -451,8 +441,6 @@ showImgBtn.addEventListener("click", () => {
   }
 });
 
-//글번호
-
 const topBtn = document.querySelector(".topBtn");
 topBtn.addEventListener("click", () => {
   window.scrollTo({
@@ -460,3 +448,16 @@ topBtn.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+async function fetchToCart() {
+  const response = await fetch(
+    "https://shop-aac53-default-rtdb.firebaseio.com/cart.json",
+    {
+      method: "PUT",
+      body: JSON.stringify({
+        items: orderOptions,
+      }),
+    }
+  );
+  const data = await response.json();
+}

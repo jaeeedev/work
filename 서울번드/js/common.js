@@ -1,3 +1,11 @@
+const background = document.querySelector(".side_bar");
+
+background.addEventListener("click", (e) => {
+  const input = document.querySelector(".side_btn");
+  if (e.target !== e.currentTarget) return;
+  input.click();
+});
+
 //pc헤더
 const lnbLists = document.querySelectorAll(".category");
 
