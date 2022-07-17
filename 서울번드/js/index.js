@@ -1,13 +1,14 @@
 const artistProducts = document.querySelectorAll(".artist_pd");
 let reviewData = [];
 
+init();
+
 artistProducts.forEach((el) =>
   el.addEventListener("mouseenter", () => {
     const imgUrl = el.children[0].src;
     document.querySelector(".artist_bg img").src = imgUrl;
   })
 );
-init();
 
 async function init() {
   await fetchReview();

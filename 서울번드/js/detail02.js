@@ -334,7 +334,7 @@ reviewArea.addEventListener("submit", (e) => {
   fetchData();
   setTimeout(() => {
     clearInput();
-  }, 500);
+  }, 800);
 });
 
 function fetchData() {

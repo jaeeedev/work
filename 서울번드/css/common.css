@@ -162,6 +162,10 @@ button {
   cursor: pointer;
 }
 
+.store li:first-child {
+  margin-top: 10px;
+}
+
 .craft label {
   display: block;
   cursor: pointer;

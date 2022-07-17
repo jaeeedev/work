@@ -1,6 +1,10 @@
 let cartData = [];
 let localData = [];
 let bingoCount = 0;
+let pdSum = 0;
+const totalPrice = document.querySelector(".total_price");
+const allPrice = document.querySelectorAll(".product_price");
+const quantity = document.querySelectorAll(".product_quantity");
 
 async function init() {
   await fetchCartData();
@@ -8,7 +12,7 @@ async function init() {
   boxEventHandler();
   checkAll();
   drawTotal();
-  memorize();
+  // memorize();
 }
 
 init();
@@ -76,10 +80,6 @@ function drawCart() {
 
   cartBox.innerHTML = cartContents;
 }
-let pdSum = 0;
-const totalPrice = document.querySelector(".total_price");
-const allPrice = document.querySelectorAll(".product_price");
-const quantity = document.querySelectorAll(".product_quantity");
 
 //체크박스
 
@@ -174,14 +174,13 @@ function deleteItem(index) {
   boxEventHandler(); //이벤트리스너 풀려서 다시 설정
 }
 
-//안되네..
-function memorize() {
-  window.addEventListener("beforeunload", () => {
-    fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
-      method: "PUT",
-      body: JSON.stringify({
-        items: localData,
-      }),
-    });
-  });
-}
+// function memorize() {
+//   window.addEventListener("beforeunload", () => {
+//     fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
+//       method: "PUT",
+//       body: JSON.stringify({
+//         items: localData,
+//       }),
+//     });
+//   });
+// }
