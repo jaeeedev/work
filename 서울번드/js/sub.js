@@ -1,12 +1,14 @@
 let cartData = [];
 let localData = [];
+let bingoCount = 0;
 
 async function init() {
   await fetchCartData();
   drawCart();
-  changeAmount();
+  boxEventHandler();
   checkAll();
-  checkEach();
+  drawTotal();
+  memorize();
 }
 
 init();
@@ -23,7 +25,7 @@ async function fetchCartData() {
 function drawCart() {
   const cartBox = document.querySelector(".mobile_wrap");
 
-  const cartContents = cartData
+  const cartContents = localData
     .map(
       (data) => `<div class="item_box">
   <input type="checkbox" class="item_check" />
@@ -53,7 +55,7 @@ function drawCart() {
       `<div class="whole_price">
     <div>
       <span class="whole_price_title">총 상품금액</span
-      ><span class="whole_price_price">84,000</span>
+      ><span class="whole_price_price">0</span>
     </div>
     <div>
       <span class="whole_price_title">배송비</span
@@ -62,7 +64,7 @@ function drawCart() {
     <hr />
     <div class="total_box">
       <span class="whole_price_title">결제예정금액</span
-      ><span class="total_price">88,000</span>
+      ><span class="total_price">4,000</span>
     </div>
     <div class="price_btns">
       <button class="buy_pick">선택상품구매</button>
@@ -74,78 +76,34 @@ function drawCart() {
 
   cartBox.innerHTML = cartContents;
 }
-
+let pdSum = 0;
 const totalPrice = document.querySelector(".total_price");
 const allPrice = document.querySelectorAll(".product_price");
 const quantity = document.querySelectorAll(".product_quantity");
 
 //체크박스
 
-let bingoCount = 0;
-
 function checkAll() {
   const checkAll = document.querySelector("#check_all");
 
   checkAll.addEventListener("change", () => {
     const allInputs = document.querySelectorAll(".item_box input");
-    const productSum = document.querySelector(".total_number");
-    const billPrice = document.querySelector(".total_bill_price");
-
     if (checkAll.checked) {
       allInputs.forEach((input) => (input.checked = true));
+      pdSum = localData.reduce((acc, cur) => {
+        return acc + cur.price * 1 * cur.count * 1;
+      }, 0);
       drawTotal();
       bingoCount = allInputs.length;
     } else {
       allInputs.forEach((input) => (input.checked = false));
-      productSum.textContent = 0;
-      billPrice.textContent = 4000;
-      bingoCount = 0;
+      pdSum = 0;
+      drawTotal();
     }
   });
 }
 
-function checkEach() {
-  const checkboxes = document.querySelectorAll(".item_check");
-  const productSum = document.querySelector(".total_number");
-  const checkAll = document.querySelector("#check_all");
-  const totalBill = document.querySelector(".total_bill_price");
-
-  checkboxes.forEach((cb, i) => {
-    cb.addEventListener("change", () => {
-      if (cb.checked) {
-        productSum.textContent =
-          productSum.textContent * 1 +
-          localData[i].price * 1 * localData[i].count;
-        bingoCount++;
-        if (bingoCount === checkboxes.length) {
-          checkAll.checked = true;
-        }
-      } else {
-        productSum.textContent =
-          productSum.textContent * 1 -
-          localData[i].price * 1 * localData[i].count;
-        bingoCount--;
-        checkAll.checked = false;
-      }
-    });
-  });
-}
-
-function drawTotal() {
-  const productSum = document.querySelector(".total_number");
-  const billPrice = document.querySelector(".total_bill_price");
-
-  productSum.textContent = localData.reduce(
-    (acc, data) => acc + data.count * data.price,
-    0
-  );
-
-  billPrice.textContent = productSum.textContent * 1 + 4000;
-}
-
-//총 금액 계산 (데이터가 있을 경우 계산 시 절대 화면의 textContent로 계산하지 말것)
-
-function changeAmount() {
+function boxEventHandler() {
   const cartItems = document.querySelector(".mobile_wrap");
   const itembox = cartItems.querySelectorAll(".item_box");
 
@@ -155,30 +113,76 @@ function changeAmount() {
       const addBtn = box.querySelector(".plus");
       let amount = box.querySelector(".product_quantity");
       let price = box.querySelector(".product_price");
-      const checkboxes = document.querySelectorAll(".item_check");
+      const checkbox = box.querySelector(".item_check");
+
+      const delBtn = box.querySelector(".cancel i");
 
       if (e.target === subsBtn) {
         if (amount.textContent <= 1) return;
 
         amount.textContent--;
         localData[i].count--;
-        price.textContent = localData[i].price * localData[i].count;
 
-        if (checkboxes[i].checked) {
-          drawTotal();
+        price.textContent = localData[i].price * localData[i].count;
+        if (checkbox.checked) {
+          pdSum -= localData[i].price;
         }
+        drawTotal();
       } else if (e.target === addBtn) {
         if (amount.textContent >= 10) return;
 
         amount.textContent++;
         localData[i].count++;
         price.textContent = localData[i].price * localData[i].count;
-        if (checkboxes[i].checked) {
-          drawTotal();
+
+        if (checkbox.checked) {
+          pdSum += localData[i].price;
         }
+        drawTotal();
+      } else if (e.target === delBtn) {
+        deleteItem(i);
+        //이벤트 풀려서 다시 걸어줘야함
+      } else if (e.target === checkbox) {
+        const checkbox = box.querySelector(".item_check");
+
+        if (checkbox.checked) {
+          pdSum += localData[i].count * localData[i].price;
+          bingoCount++;
+        } else {
+          pdSum -= localData[i].count * localData[i].price;
+          bingoCount--;
+        }
+        drawTotal();
       }
     })
   );
 }
 
-//마지막에 이 화면에서 벗어나려고 하면 로컬데이터 호다닥 put해주기
+function drawTotal() {
+  const productSum = document.querySelector(".total_number");
+  const totalBill = document.querySelector(".total_bill_price");
+  document.querySelector(".whole_price_price").textContent = pdSum;
+  productSum.textContent = pdSum;
+  document.querySelector(".total_price").textContent = pdSum + 4000;
+  totalBill.textContent = pdSum + 4000;
+}
+
+function deleteItem(index) {
+  localData.splice(index, 1);
+  drawCart();
+  drawTotal();
+  boxEventHandler(); //이벤트리스너 풀려서 다시 설정
+}
+
+//닫거나 이동한 뒤 돌아오면 저장되는데 새고는 저장이 안됨,,,ㅜㅜ
+function memorize() {
+  window.addEventListener("beforeunload", (e) => {
+    e.preventDefault();
+    fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
+      method: "PUT",
+      body: JSON.stringify({
+        items: localData,
+      }),
+    });
+  });
+}

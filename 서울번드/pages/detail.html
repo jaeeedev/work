@@ -16,7 +16,7 @@
       href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
     />
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="../js/detail.js" defer></script>
+    <script src="../js/detail02.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -293,7 +293,7 @@
       <div class="nav_bar">
         <div class="go_detail on"><a href="#detail">상품상세</a></div>
         <div class="go_review">
-          <a href="#review">상품후기<span class="review_count">37</span></a>
+          <a href="#review">상품후기<span class="review_count">0</span></a>
         </div>
         <div class="go_qna"><a href="#qna">상품문의</a></div>
       </div>
@@ -381,23 +381,18 @@
       </div>
       <div class="total_rate">
         <span class="rate_title">평점</span>
-        <span class="rate_number">4.5</span>
-        <span class="rate_amount">37</span>
+        <span class="rate_number">0</span>
+        <span class="rate_amount">0</span>
         <button class="write_review">리뷰작성</button>
       </div>
 
       <form class="review_write_box">
         <div class="file_box" onchange="">
           <div class="fake_input"></div>
-          <input
-            type="file"
-            accept="image/*"
-            onchange="readURL();"
-            class="file_input"
-          />
+          <input type="file" accept="image/*" class="file_input" multiple />
         </div>
         <div class="thumbnail_box">
-          <!-- <img id="preview" alt="" /> -->
+          <!-- <img class="preview" alt="" /> -->
         </div>
         <div class="star_box">
           <span class="star">☆☆☆☆☆</span>
@@ -423,29 +418,7 @@
         <button class="review_filter_btn review_all_btn on">전체 리뷰</button>
         <button class="review_filter_btn review_img_btn">사진 리뷰</button>
       </div>
-      <div class="review_wrapper">
-        <div class="review_box">
-          <div class="review_writer">
-            <span class="writer_name_title">작성자</span
-            ><span class="writer_name">박지은</span>
-          </div>
-
-          <div class="review_img">
-            <img src="../img/review01.jpg" alt="리뷰 이미지" />
-            <img src="../img/review02.jpg" alt="리뷰 이미지" />
-          </div>
-
-          <div class="review_text">
-            <span class="review_star">★★★★★</span>
-            <p>
-              디자인과 색상이 아주 잘 어우러집니다. 묵직한 느낌이 너무 좋아요.
-              트레이로 되어있어서 다른 과일과 주전부리를 함께 보관할 수 있다는
-              점이 특히 장점입니다.
-            </p>
-            <span class="review_date">2022-07-05</span>
-          </div>
-        </div>
-      </div>
+      <div class="review_wrapper"></div>
     </section>
     <section class="qna" id="qna">
       <h2>상품 문의</h2>
@@ -524,8 +497,31 @@
             <span class="view_count">1</span>
           </div>
         </div>
+        <div class="qna_pages">
+          <a href="#!"
+            ><span><i class="fa-solid fa-chevron-left"></i></span
+          ></a>
+          <a href="#!"><span>1</span></a>
+          <a href="#!"><span>2</span></a>
+          <a href="#!"><span>3</span></a>
+          <a href="#!"><span>4</span></a>
+          <a href="#!"><span>5</span></a>
+          <a href="#!"
+            ><span><i class="fa-solid fa-chevron-right"></i></span
+          ></a>
+        </div>
       </div>
       <button class="write_qna">문의하기</button>
+
+      <form class="write_qna_area">
+        <input type="text" class="qna_title" placeholder="글 제목" />
+        <textarea
+          class="qna_text"
+          minlength="10"
+          placeholder="~~여기는 기능이 없습니다~~"
+        ></textarea>
+        <button class="write_btn">작성</button>
+      </form>
     </section>
 
     <section class="relative_pd">

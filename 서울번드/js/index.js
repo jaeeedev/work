@@ -1,4 +1,5 @@
 const artistProducts = document.querySelectorAll(".artist_pd");
+let reviewData = [];
 
 artistProducts.forEach((el) =>
   el.addEventListener("mouseenter", () => {
@@ -6,6 +7,33 @@ artistProducts.forEach((el) =>
     document.querySelector(".artist_bg img").src = imgUrl;
   })
 );
+init();
+
+async function init() {
+  await fetchReview();
+  // fillReview();
+}
+
+async function fetchReview() {
+  const response = await fetch(
+    "https://shop-aac53-default-rtdb.firebaseio.com/orders.json"
+  );
+  reviewData = await response.json();
+}
+
+// function fillReview() {
+//   let count = 0;
+//   let contents = "";
+//   for (let rv in reviewData) {
+//     if (count >= 4) return;
+//     contents += `<div class="rv_content">
+//     <img src=${reviewData[rv].imgSrc} alt="리뷰 이미지" />
+//     </div>`;
+//     count++;
+//   }
+//   console.log(count);
+//   document.querySelector(".review_contents").innerHTML = contents;
+// }
 
 const swiper = new Swiper(".swiper1", {
   loop: true,
