@@ -319,7 +319,9 @@ function clearInput() {
   reviewArea.reset();
   starRate = 0;
   star.textContent = "☆☆☆☆☆";
-  location.reload();
+  setTimeout(() => {
+    location.reload();
+  }, 300);
 }
 
 reviewArea.addEventListener("submit", async (e) => {

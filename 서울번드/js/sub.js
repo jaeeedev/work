@@ -174,10 +174,9 @@ function deleteItem(index) {
   boxEventHandler(); //이벤트리스너 풀려서 다시 설정
 }
 
-//닫거나 이동한 뒤 돌아오면 저장되는데 새고는 저장이 안됨,,,ㅜㅜ
+//안되네..
 function memorize() {
-  window.addEventListener("beforeunload", (e) => {
-    e.preventDefault();
+  window.addEventListener("beforeunload", () => {
     fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
       method: "PUT",
       body: JSON.stringify({

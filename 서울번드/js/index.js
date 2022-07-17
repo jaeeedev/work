@@ -11,7 +11,7 @@ init();
 
 async function init() {
   await fetchReview();
-  // fillReview();
+  fillReview();
 }
 
 async function fetchReview() {
@@ -21,19 +21,30 @@ async function fetchReview() {
   reviewData = await response.json();
 }
 
-// function fillReview() {
-//   let count = 0;
-//   let contents = "";
-//   for (let rv in reviewData) {
-//     if (count >= 4) return;
-//     contents += `<div class="rv_content">
-//     <img src=${reviewData[rv].imgSrc} alt="리뷰 이미지" />
-//     </div>`;
-//     count++;
-//   }
-//   console.log(count);
-//   document.querySelector(".review_contents").innerHTML = contents;
-// }
+function fillReview() {
+  let contents = "";
+  let imgArr = [];
+  let imgs = [];
+  for (let rv in reviewData) {
+    if (reviewData[rv].hasOwnProperty("imgSrc")) {
+      imgArr.push(reviewData[rv]);
+    }
+  }
+  for (let i = imgArr.length - 1; i >= 0; i--) {
+    if (imgs.length > 4) break;
+    imgArr[i].imgSrc.forEach((src) => imgs.push(src));
+  }
+
+  for (let i = 0; i < 4; i++) {
+    contents += `<div class="rv_content">
+    <a href="./pages/detail.html">
+    <img src=${imgs[i]} alt="리뷰 이미지"/>
+    </a>
+    </div>`;
+  }
+
+  document.querySelector(".review_contents").innerHTML = contents;
+}
 
 const swiper = new Swiper(".swiper1", {
   loop: true,
