@@ -319,56 +319,68 @@ function clearInput() {
   reviewArea.reset();
   starRate = 0;
   star.textContent = "☆☆☆☆☆";
-  setTimeout(() => {
-    location.reload();
-  }, 300);
+  location.reload();
+  // setTimeout(() => {
+  // }, 500);
 }
 
-reviewArea.addEventListener("submit", async (e) => {
+reviewArea.addEventListener("submit", (e) => {
+  e.preventDefault();
   if (star.textContent === "☆☆☆☆☆") {
     alert("별점을 입력해주세요.");
     e.preventDefault();
     return;
   }
-
-  await fetchData();
-  await fetchReview();
-  writeReview();
-  clearInput();
+  fetchData();
+  setTimeout(() => {
+    clearInput();
+  }, 500);
 });
 
-async function fetchData() {
+function fetchData() {
   let today = new Date();
   let year = today.getFullYear(); // 년도
   let month = today.getMonth() + 1; // 월
   let date = today.getDate(); // 날짜
   const writeDate = year + "/" + month + "/" + date;
 
-  const reviewText = document.querySelector(".review_write_text");
+  const reviewText = document.querySelector(".review_write_text").value;
   const writerName = document.querySelector(".writer_input").value;
 
+  console.log(writeDate);
+  console.log(reviewText);
+  console.log(writerName);
+
   if (document.querySelector(".file_input").value) {
-    await fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
-      method: "POST",
-      body: JSON.stringify({
-        imgSrc: rvImgArr,
-        star: starRate,
-        date: writeDate,
-        text: reviewText.value,
-        writer: writerName,
-      }),
-    });
+    try {
+      fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
+        method: "POST",
+        body: JSON.stringify({
+          imgSrc: rvImgArr,
+          star: starRate,
+          date: writeDate,
+          text: reviewText,
+          writer: writerName,
+        }),
+      });
+    } catch (e) {
+      console.log(e);
+    }
   } else {
-    await fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
-      method: "POST",
-      body: JSON.stringify({
-        imgSrc: null,
-        star: starRate,
-        date: writeDate,
-        text: reviewText.value,
-        writer: writerName,
-      }),
-    });
+    try {
+      fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
+        method: "POST",
+        body: JSON.stringify({
+          imgSrc: null,
+          star: starRate,
+          date: writeDate,
+          text: reviewText,
+          writer: writerName,
+        }),
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
