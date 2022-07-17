@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEOUL BUND</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <script
+      src="https://kit.fontawesome.com/7cde33c3cd.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="inner_header">
+        <h1>
+          <a href="./index.html"
+            ><a href="./index.html"
+              ><img src="./img/tight_logo.png" alt="모바일 로고" /></a
+          ></a>
+        </h1>
+        <div class="menus">
+          <div class="header_search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+          <a href="./pages/sub.html" class="header_cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+          <label class="header_bar" for="side_btn"
+            ><i class="fa-solid fa-bars"></i>
+          </label>
+        </div>
+      </div>
+    </header>
+    <input type="checkbox" id="side_btn" class="side_btn" />
+    <nav class="side_bar">
+      <ul class="depth_1">
+        <li><a href="#!">베스트</a></li>
+        <input type="checkbox" id="store_input" class="store_input" />
+        <li class="store">
+          <label for="store_input"
+            >스토어
+            <span class="sub_exist_icon on"
+              ><i class="fa-solid fa-angle-down"></i
+            ></span>
+            <span class="sub_exist_icon off"
+              ><i class="fa-solid fa-angle-up"></i
+            ></span>
+          </label>
+
+          <ul class="depth_2">
+            <li><a href="#!">신제품</a></li>
+            <li>
+              선물추천
+              <ul class="depth_3">
+                <li><a href="#!">모두보기</a></li>
+                <li><a href="#!">~5만원</a></li>
+                <li><a href="#!">~10만원</a></li>
+                <li><a href="#!">~20만원</a></li>
+                <li><a href="#!">20만원~</a></li>
+              </ul>
+            </li>
+            <li>
+              테이블웨어
+              <ul class="depth_3">
+                <li><a href="#!">모두보기</a></li>
+                <li><a href="#!">공기/대접</a></li>
+                <li><a href="#!">종지/찬기</a></li>
+                <li><a href="#!">면기</a></li>
+                <li><a href="#!">플레이트</a></li>
+              </ul>
+            </li>
+            <li>
+              음료용품
+              <ul class="depth_3">
+                <li><a href="#!">모두보기</a></li>
+                <li><a href="#!">컵/머그/잔</a></li>
+                <li><a href="#!">유리잔</a></li>
+                <li><a href="#!">다도용품</a></li>
+              </ul>
+            </li>
+            <li>
+              조리용품
+              <ul class="depth_3">
+                <li><a href="#!">모두보기</a></li>
+                <li><a href="#!">냄비</a></li>
+                <li><a href="#!">스티머</a></li>
+                <li><a href="#!">프라이팬/그릴</a></li>
+              </ul>
+            </li>
+            <li>
+              홈데코
+              <ul class="depth_3">
+                <li><a href="#!">모두보기</a></li>
+                <li><a href="#!">캔들/디퓨저/인센스</a></li>
+                <li><a href="#!">화병</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <input type="checkbox" id="craft_input" class="craft_input" />
+        <li class="craft">
+          <label for="craft_input"
+            >공예
+            <span class="sub_exist_icon on"
+              ><i class="fa-solid fa-angle-down"></i
+            ></span>
+            <span class="sub_exist_icon off"
+              ><i class="fa-solid fa-angle-up"></i
+            ></span>
+          </label>
+          <ul>
+            <li><a href="#!"> 공예 모두보기 </a></li>
+            <li><a href="#!"> 공예 작가 </a></li>
+            <li><a href="#!"> 공예 작가 인터뷰 </a></li>
+          </ul>
+        </li>
+        <li><a href="#!">프로젝트</a></li>
+        <li><a href="#!">로그인</a></li>
+        <li>
+          <a href="#!">
+            <span>KR</span>
+            <span>EN</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <header class="pc_header">
+      <div class="inner_pc_header">
+        <h1>
+          <a href="./index.html"
+            ><img src="./img/tight_logo_white.png" alt=""
+          /></a>
+        </h1>
+        <ul class="menus">
+          <li class="category">
+            <div class="lnb_menu_title"><a href="#!">베스트</a></div>
+          </li>
+          <li class="category store">
+            <div class="lnb_menu_title"><a href="#!">스토어</a></div>
+            <div class="lnb_menu_contents">
+              <div class="content_box">
+                <ul class="inner">
+                  <li>
+                    <h4>신제품</h4>
+                  </li>
+                  <li>
+                    <h4>선물추천</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">~5만원</a></li>
+                      <li><a href="#!">~10만원</a></li>
+                      <li><a href="#!">~20만원</a></li>
+                      <li><a href="#!">20만원~</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>테이블웨어</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">공기/대접</a></li>
+                      <li><a href="#!">종지/찬기</a></li>
+                      <li><a href="#!">면기</a></li>
+                      <li><a href="#!">플레이트</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>음료용품</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">컵/머그/잔</a></li>
+                      <li><a href="#!">유리잔</a></li>
+                      <li><a href="#!">다도용품</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>조리용품</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">냄비</a></li>
+                      <li><a href="#!">스티머</a></li>
+                      <li><a href="#!">프라이팬/그릴</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h4>홈데코</h4>
+                    <ul>
+                      <li><a href="#!">모두보기</a></li>
+                      <li><a href="#!">캔들/디퓨저/인센스</a></li>
+                      <li><a href="#!">화병</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="category craft">
+            <div class="lnb_menu_title"><a href="#!">공예</a></div>
+            <div class="lnb_menu_contents craft">
+              <div class="content_box">
+                <ul class="inner">
+                  <li>
+                    <h4><a href="#!">공예 모두보기</a></h4>
+                  </li>
+                  <li>
+                    <h4><a href="#!">공예 작가</a></h4>
+                  </li>
+                  <li>
+                    <h4><a href="#!">공예 작가 인터뷰</a></h4>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+          <li class="category">
+            <div class="lnb_menu_title"><a href="#!">프로젝트</a></div>
+          </li>
+        </ul>
+
+        <ul class="tools">
+          <li><i class="fa-solid fa-magnifying-glass"></i></li>
+          <li>
+            <a href="./pages/sub.html"
+              ><i class="fa-solid fa-cart-shopping"></i
+            ></a>
+            <div class="badge"><span class="badge_count"></span></div>
+          </li>
+        </ul>
+
+        <div class="gnb">
+          <span><a href="#!">로그인</a></span>
+          <div class="lang">
+            <ul class="select_lang">
+              <span>KR</span>
+              <li>KR</li>
+              <li>EN</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="main">
+      <div class="swiper1">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">
+            <div class="slide_img">
+              <picture>
+                <source
+                  srcset="./img/pc_main01.jpg"
+                  media="all and (min-width: 1260px)"
+                />
+                <source
+                  srcset="./img/pc_main011.jpg"
+                  media="all and (min-width: 601px)"
+                />
+                <img src="./img/mobile_main01.jpg" alt="" />
+              </picture>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide_img">
+              <picture>
+                <source
+                  srcset="./img/pc_main02.jpg"
+                  media="all and (min-width: 1260px)"
+                />
+                <source
+                  srcset="./img/pc_main022.jpg"
+                  media="all and (min-width: 601px)"
+                />
+
+                <img src="./img/mobile_main02.jpg" alt="" />
+              </picture>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="slide_img">
+              <picture>
+                <source
+                  srcset="./img/pc_main03.jpg"
+                  media="all and (min-width: 1260px)"
+                />
+                <source
+                  srcset="./img/pc_main033.jpg"
+                  media="all and (min-width: 601px)"
+                />
+
+                <img src="./img/mobile_main03.jpg" alt="" />
+              </picture>
+            </div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <section class="product_toggle">
+      <h2>이달의 <span class="toggle_span">신제품</span></h2>
+      <div class="product_btns">
+        <button class="product_new active">신제품</button>
+        <button class="product_best">베스트</button>
+      </div>
+
+      <div class="swiper-container swiper_new active">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="./pages/detail.html">
+              <img src="./img/tea01.jpg" />
+            </a>
+            <a href="./pages/detail.html" class="pd_name"
+              ><span>[서울번드] WGNB PULL GLASS CUP 풀 고블렛 유리컵</span></a
+            >
+            <span class="pd_price">28,000</span>
+          </div>
+          <div class="swiper-slide">
+            <a href="#!">
+              <img src="./img/new02.jpg" />
+            </a>
+            <a href="#!" class="pd_name"
+              ><span>[나인웨어] 포레 홈 1인 세트_아이보리</span></a
+            >
+            <span class="pd_price">14,400</span>
+          </div>
+          <div class="swiper-slide">
+            <a href="#!">
+              <img src="./img/new03.jpg" />
+            </a>
+            <a href="#!" class="pd_name"
+              ><span>[나인웨어] 볼륨 식기건조대 와이드 컬러에디션_그린</span></a
+            >
+            <span class="pd_price">44,910</span>
+          </div>
+          <div class="swiper-slide">
+            <a href="#!">
+              <img src="./img/new04.jpg" />
+            </a>
+            <a href="#!" class="pd_name"
+              ><span>[나인웨어] 볼륨 식기건조대 와이드 컬러에디션_핑크</span></a
+            >
+            <span class="pd_price">44,910</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-container swiper_best">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="#!">
+              <img src="./img/best01.jpg" />
+            </a>
+            <a href="#!" class="pd_name"
+              ><span>[SB REPLICA] 포레스트 티스푼</span></a
+            >
+            <span class="pd_price">5,900</span>
+          </div>
+          <div class="swiper-slide">
+            <a href="#!">
+              <img src="./img/best02.jpg" />
+            </a>
+            <a href="#!" class="pd_name"><span>[심사영] 수저받침</span></a>
+            <span class="pd_price">14,000</span>
+          </div>
+          <div class="swiper-slide">
+            <a href="#!">
+              <img src="./img/best03.jpg" />
+            </a>
+            <a href="#!" class="pd_name"
+              ><span>[SB REPLICA] 포레스트 피크</span></a
+            >
+            <span class="pd_price">5,900</span>
+          </div>
+          <div class="swiper-slide">
+            <a href="#!">
+              <img src="./img/best04.jpg" />
+            </a>
+            <a href="#!" class="pd_name"
+              ><span>[서울번드] 텔레스컵 L (단품)</span></a
+            >
+            <span class="pd_price">14,900</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="promotion">
+      <h2>한눈에 보기</h2>
+
+      <div class="pr_slide_wrap">
+        <div class="promotion_slide event_slide">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">EVENT</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">7월 "달이면 달마다"</span>
+                  <p>
+                    이번 달 쿠폰팩과 함께라면 폭염 걱정은 뚝! 회원 모두에게
+                    7월의 상쾌함을 선물합니다 (~7/31)
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/event01.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">EVENT</div>
+                <div class="pr_desc">
+                  <span class="pr_bold"
+                    >베스트 리뷰어에게 적립금 5,000원 선물</span
+                  >
+                  <p>
+                    번더들에게 나만의 취향을 공유해 주세요. 후기를 남겨주신
+                    모두에게 적립금을 드려요.
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/event02.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">EVENT</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">-10% 모든 제품</span>
+                  <p>
+                    회원 가입 즉시 모두에게 발급 전 제품 10% 할인 쿠폰 (일부
+                    제품 제외)
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/event03.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="promotion_slide only_slide">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">SEOUL<br />BUND<br />ONLY</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">하경아도자기</span>
+                  <p>
+                    투박한듯 섬세한 도자 공예가의 손길 러프한 라인이 매력적인
+                    자연 그대로의 그릇<br />
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/only01.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">SEOUL<br />BUND<br />ONLY</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">안나리사</span>
+                  <p>
+                    자연을 닮은 잔잔한 아름다움<br />
+                    부드러운 무드의 핸드 블론 유리공예품
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/only02.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">SEOUL<br />BUND<br />ONLY</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">나은크라프트</span>
+                  <p>
+                    기품있는 옻칠 색상과 자개의 만남<br />
+                    실용적이고 현대적인 디자인
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/only03.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="promotion_slide taste_slide">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">번더의 취향</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">영원을 담은 공예 작품 한 점</span>
+                  <p>
+                    한국 공예품과 함께하는 아트테리어<br />
+                    전통미와 모던함, 두 마리 토끼를 잡았어요.
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/taste01.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">번더의 취향</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">실패없는 조합, 화이트 & 우드</span>
+                  <p>
+                    1인가구도 쉽고 간편하게 누리는 아늑함<br />
+                    번더 ‘나주’의 취향이 담긴 홈 스타일링 팁
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/taste02.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">번더의 취향</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">봄을 기다리며, 미리 파스텔</span>
+                  <p>
+                    새로운 계절맞이, 변화가 필요할 때!<br />
+                    포근한 파스텔 컬러 아이템 추천
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/taste03.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="promotion_slide best_slide">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">BEST<br />REVIEW</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">BEST REVIEW</span>
+                  <p>
+                    [서울번드] WGNB PUSH GLASS CUP 푸시 고블렛 유리컵<br />
+                    유니크한 디자인, 손님맞이 차림에 내놓으면 항상 인기
+                    만점이에요.
+                  </p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/br01.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">BEST<br />REVIEW</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">BEST REVIEW</span>
+                  <p>[헤리터] 메르디안 키친 매트</p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/br02.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slide_text">
+                <div class="pr_title">BEST<br />REVIEW</div>
+                <div class="pr_desc">
+                  <span class="pr_bold">BEST REVIEW</span>
+                  <p>[심사영] White Memories 플렛 접시 (오발)</p>
+                  <a href="#!" class="pr_more">
+                    <span>자세히 보기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="slide_img">
+                <a href="#!">
+                  <img src="./img/br03.jpg" alt="" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+      <div class="pr_mobile_more">
+        <a href="#!"><span>더보기</span></a>
+      </div>
+    </section>
+
+    <section class="project">
+      <h2>프로젝트</h2>
+      <div class="project_container">
+        <div class="inner_contents">
+          <div class="content con01">
+            <img src="./img/pd01.jpg" alt="" />
+            <a href="#!" class="content_cover">
+              <span>[오유글라스워크] 이케바나 플레이트 (2 size)</span>
+              <span>63,000</span>
+            </a>
+          </div>
+          <div class="content con02">
+            <img src="./img/pd02.jpg" alt="" />
+            <a href="#!" class="content_cover">
+              <span>[오유글라스워크] 따조 원형</span>
+              <span>25,000</span>
+            </a>
+          </div>
+          <div class="content con03">
+            <img src="./img/pd03.jpg" alt="" />
+            <a href="#!" class="content_cover">
+              <span>[오유글라스워크] 따조 오발 (2 type) </span>
+              <span>28,000</span>
+            </a>
+          </div>
+        </div>
+        <div class="project_title">
+          <span>우리가 모두 사랑하는</span>
+          <h4>오유글라스워크</h4>
+        </div>
+        <div class="more">
+          <span><a href="#!">자세히 보기</a></span>
+        </div>
+        <img src="./img/book09.jpg" alt="" />
+      </div>
+    </section>
+
+    <section class="mobile_project">
+      <div class="mop_wrapper">
+        <h2>
+          우리 모두가 사랑하는<br />
+          오유글라스워크
+        </h2>
+        <div class="mop_bg">
+          <img src="./img/book01.jpg" alt="" />
+        </div>
+        <div class="mop_contents" data-index="0">
+          <a href="#!"><img src="./img/pd01.jpg" alt="" /></a>
+          <div class="mop_cover">
+            <span>[오유글라스워크] 이케바나 플레이트 (2 size)</span>
+            <span>63,000</span>
+          </div>
+        </div>
+        <div class="mop_contents" data-index="1">
+          <a href="#!"><img src="./img/pd02.jpg" alt="" /></a>
+          <div class="mop_cover">
+            <span>[오유글라스워크] 따조 원형</span>
+            <span>25,000</span>
+          </div>
+        </div>
+        <div class="mop_contents" data-index="2">
+          <a href="#!"><img src="./img/pd03.jpg" alt="" /></a>
+          <div class="mop_cover">
+            <span>[오유글라스워크] 따조 오발 (2 type) </span>
+            <span>28,000</span>
+          </div>
+        </div>
+        <div class="mop_more">
+          <a href="#!"><span>자세히 보기</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="artist">
+      <h2>작가</h2>
+      <p>
+        시대의 기술과 아름다움을 담은 아시아의 공예<br />
+        서울번드가 큐레이팅한 한국 작가와 브랜드
+      </p>
+      <div class="long_artist_pic">
+        <picture>
+          <source
+            srcset="./img/artist_pc.jpg"
+            media="all and (min-width: 768px)"
+          />
+          <img src="./img/artist01.jpg" alt="작가 작업 사진" />
+        </picture>
+      </div>
+
+      <div class="artist_bg mobile_artist">
+        <img src="./img/artist02.jpg" alt="" />
+        <div class="artist_pd pd01">
+          <img src="./img/artist02.jpg" alt="" />
+          <div class="artist_cover">
+            <p>[박선민] 리:앤티크 블론시리즈 화병 ver.3</p>
+          </div>
+        </div>
+        <div class="artist_pd pd02">
+          <img src="./img/artist03.jpg" alt="" />
+          <div class="artist_cover">
+            <p>[박선민] 리:앤티크 블론시리즈 화병 ver.1</p>
+          </div>
+        </div>
+        <div class="artist_pd pd03">
+          <img src="./img/artist04.jpg" alt="" />
+          <div class="artist_cover">
+            <p>[박선민] 리:앤티크 블론시리즈 화병 ver.2</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pc_artist">
+        <div class="inner_container">
+          <div class="artist_interview">
+            <span class="pc_artist_name">박선민 작가<br />INTERVIEW</span>
+            <div class="interview_box">
+              <p>
+                쓰임을 다한 사물이 우리 곁에 더 오래 머물 수 있도록, 사물의
+                보이는 가치와 보이지 않는 가치를 생활공예품 속에 담고 있고자
+                노력합니다.'
+                <br />
+                <br />
+                Q1. 유리 공예에 매료되신 이유가 있나요? 유리의 이중적인 물성과
+                다채로운 컬러가 주는 매력으로 인해 많은 분들이 유리 공예품을
+                좋아하시는 것 같아요. 저 또한 그러한 점에 반해 유리를 선택하게
+                되었구요. 최근 몇 년간 국내에서도 유리공예에 대한 관심이
+                높아지고, 다양한 공예품들이 많이 나오는 것 같아 개인적으로는
+                흐뭇한 마음이에요.
+                <br />
+                <br />
+                Q2. 새로운 라인과 리미티드 에디션을 선보이셨어요. 기존
+                라인들과는 어떤 차이가 있나요? 썸머에디션으로 두 가지 디자인을
+                선보이게 되었어요. 첫 번째는 여름하면 떠오르는 시원한 블루
+                컬러를 받침으로 매칭한 Re:Antique 플랫 글래스 세트로 시원한 웰컴
+                티와 잘 어울리는 디자인이랍니다. 기존 잔 세트와는 다르게
+                손잡이와 받침의 컬러를 다르게 매칭하였고, 두 가지 사이즈로 한
+                여름의 음료에 완벽하게 어울리도록 제작해봤어요. 사용하는 분이
+                실제로 사용할 때의 모습을 상상하며 오래도록 잘 쓰일 수 있기를
+                바라는 마음을 담았어요. 두번째는 Le Marble과 협업한
+                Re:Bottle+Marble 잔 시리즈로 대리석 제품 가공 후 나오는 파석을
+                손잡이로 매칭한 유리 오브젝트예요. 자연스러운 파석의 형태를 부분
+                가공해서 오직 이 세상에 단 하나뿐인 제품을 소장하는, 아주 특별한
+                에디션이랍니다. 재사용될 수 있는 모든 것들을 단순히 지나치지
+                않고, 찬찬히 바라보면서 우리의 일상에서 가치 있게 머무를 수 있는
+                방법을 고민하고, 그 바램을 담아 제작했어요.
+                <br />
+                <br />
+                Q3. 작가님의 작품이 다른 유리 공예 브랜드들과 비교했을 때,
+                남다른 차별점이 있다면요? 소재를 바라보는 관점이 다르다는 점,
+                유리 소재 하나만을 사용하는 것이 아닌 타 소재와의 결합을 통해
+                독특하고 익숙하지 않은 형태를 제작하는 점이 특별하다고 말할 수
+                있을 것 같아요. 또 일반적으로 알고 있는 유리의 특성이 한 겹
+                감춰진 듯한 매력이 느껴지는 부분, 유리의 투명하고 선명한 컬러뿐
+                아니라 매트한 질감 표현까지 다양하게 표현되는 방식에서도
+                차이점을 가지고 있구요. 일반적이지 않은 모습으로 사물을
+                표현하고자 하는 시도, 소재를 바라보는 관점이 다른 것에서 그런
+                요소들이 여실히 드러나는 것 같습니다.
+              </p>
+            </div>
+            <div class="artist_more">
+              <a href="#!">더보기</a>
+            </div>
+          </div>
+          <div class="artist_product">
+            <div class="row1">
+              <div class="row_pd">
+                <img src="./img/artist02.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row_pd">
+                <img src="./img/artist03.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row_pd">
+                <img src="./img/artist04.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row2">
+              <div class="row_pd">
+                <img src="./img/artist05.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row_pd">
+                <img src="./img/artist06.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row_pd">
+                <img src="./img/artist07.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row1">
+              <div class="row_pd">
+                <img src="./img/artist08.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row_pd">
+                <img src="./img/artist09.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+              <div class="row_pd">
+                <img src="./img/artist10.jpg" alt="" />
+                <div class="row_pd_cover">
+                  <a href="#!">
+                    <span class="row_pd_name">
+                      [박선민] 리:엔티크 블론 시리즈 화병 ver.3
+                    </span>
+                    <span class="row_pd_more">보러가기</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="taste">
+      <h2>번더의 취향</h2>
+      <div class="taste_btns">
+        <button class="wellness active">웰니스</button>
+        <button class="recipe">키친 & 레시피</button>
+      </div>
+      <div class="taste_box">
+        <div class="swiper-container swiper_wellness active">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#!">
+                <img src="./img/wellness01.jpg" />
+              </a>
+              <div class="taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>WELLNESS</span>
+                </span>
+                <a href="#!">
+                  <h4>미세먼지 안전구역, 우리집 지키는 반려식물</h4>
+                  <p>초보 식집사와 식물, 모두가 건강하게!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <a href="#!">
+                <img src="./img/wellness02.jpg" />
+              </a>
+              <div class="taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>WELLNESS</span>
+                </span>
+                <a href="#!">
+                  <h4>똑똑한 공간별 활용 솔루션</h4>
+                  <p>자투리 공간도 200% 알차게 활용하는 법</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="swiper-container swiper_kitchen">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <a href="#!">
+                <img src="./img/kitchen01.jpg" />
+              </a>
+              <div class="taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>KITCHEN & RECIPE</span>
+                </span>
+                <a href="#!">
+                  <h4>캠린이도 할 수 있는 '홈캠핑' 도전기</h4>
+                  <p>봄캠핑의 낭만, 집에서도 밖에서도 즐겨요!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <a href="#!">
+                <img src="./img/kitchen02.jpg" />
+              </a>
+              <div class="taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>KITCHEN & RECIPE</span>
+                </span>
+                <a href="#!">
+                  <h4>싱그러운 제철 식재료 어떻게 즐기세요?</h4>
+                  <p>더 맛있고 신선하게 보관해 보세요!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pc_taste">
+      <div class="taste_toggle_box">
+        <div class="taste_text_box">
+          <div class="current_title_box">
+            <span class="bunder_taste">번더의 취향</span>
+            <span class="current_title">웰니스</span>
+          </div>
+          <div class="taste_toggle_btns">
+            <button class="pc_wellness_btn active">웰니스</button>
+            <button class="pc_kitchen_btn">키친 & 레시피</button>
+          </div>
+        </div>
+        <div class="articles">
+          <div class="taste_article_box wellness active">
+            <div class="wellness_article">
+              <a class="article_img" href="#!">
+                <img src="./img/wellness01.jpg" />
+              </a>
+              <div class="pc_taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>WELLNESS</span>
+                </span>
+                <a href="#!">
+                  <h4>미세먼지 안전구역, 우리집 지키는 반려식물</h4>
+                  <p>초보 식집사와 식물, 모두가 건강하게!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+            <div class="wellness_article">
+              <a class="article_img" href="#!">
+                <img src="./img/wellness02.jpg" />
+              </a>
+              <div class="pc_taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>WELLNESS</span>
+                </span>
+                <a href="#!">
+                  <h4>똑똑한 공간별 활용 솔루션</h4>
+                  <p>자투리 공간도 200% 알차게 활용하는 법</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="taste_article_box kitchen">
+            <div class="kitchen_article">
+              <a class="article_img" href="#!">
+                <img src="./img/kitchen01.jpg" />
+              </a>
+              <div class="pc_taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>KITCHEN</span>
+                </span>
+                <a href="#!">
+                  <h4>캠핑 초보도 할 수 있는 '홈캠핑' 도전기</h4>
+                  <p>봄캠핑의 낭만, 집에서도 밖에서도 즐겨요!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+            <div class="kitchen_article">
+              <a class="article_img" href="#!">
+                <img src="./img/kitchen02.jpg" />
+              </a>
+              <div class="pc_taste_text">
+                <span class="category_title">
+                  CATEGORY | <span>KITCHEN</span>
+                </span>
+                <a href="#!">
+                  <h4>싱그러운 제철 식재료 어떻게 즐기세요?</h4>
+                  <p>더 맛있고 신선하게 보관해 보세요!</p>
+                  <span class="taste_more">자세히 보기</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="notice">
+      <div class="notice_box">
+        <div class="notice_title">
+          <a href="#!"><span>공지사항</span></a>
+        </div>
+        <div class="notice_slide">
+          <div class="slide">
+            <a href="#!"
+              ><p>[공지] 6/6 (현충일) 고객센터 휴무 안내</p>
+              <span>2022-06-03</span></a
+            >
+          </div>
+          <div class="slide">
+            <a href="#!"
+              ><p>[공지] B2B 사업자 고객 전용 혜택 안내</p>
+              <span>2022-02-11</span></a
+            >
+          </div>
+          <div class="slide">
+            <a href="#!"
+              ><p>[공지] 카카오톡 알림톡 오픈 안내</p>
+              <span>2022-01-21</span></a
+            >
+          </div>
+          <div class="slide">
+            <a href="#!"
+              ><p>
+                [공지] CJ대한통운 파업으로 인한 배송 지연 및 불가 안내 / 롯데,
+                한진, 우체국, 로젠택배
+              </p>
+              <span>2022-06-03</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo_review">
+      <h2>SEOUL BUND<br />PHOTO REVIEW</h2>
+      <div class="review_contents"></div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer_top">
+        <div class="worktime">
+          <span class="worktime_title">고객센터 운영시간</span>
+          <p>
+            영업시간
+            <br />
+            온라인<br />
+            월-금<br />
+            오전 10:00 - 오후 17:00<br />
+            주말, 공휴일 쉼
+          </p>
+          <br />
+          <p>
+            점심시간<br />
+            12:30 - 13:30
+          </p>
+        </div>
+        <div class="support">
+          <span>고객지원센터</span>
+          <span class="support_tel">070-4409-0689</span>
+          <a href="#!"><span>공지사항</span></a>
+          <a href="#!"><span>쇼핑가이드</span></a>
+          <a href="#!"><span>배송/반품지원</span></a>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <div class="footer_sns">
+          <span
+            ><a href="#!"> <img src="./img/insta.png" alt="" /> </a
+          ></span>
+          <span
+            ><a href="#!"> <img src="./img/facebook.png" alt="" /> </a
+          ></span>
+          <span
+            ><a href="#!"> <img src="./img/blog.png" alt="" /> </a
+          ></span>
+          <span
+            ><a href="#!"> <img src="./img/pinterest.png" alt="" /> </a
+          ></span>
+        </div>
+
+        <span class="company_info_title">회사정보</span>
+
+        <p>회사: 주식회사 서울번드 대표: 박찬호</p>
+        <p>사업자 등록번호: [472-87-00375]</p>
+        <br />
+        <p>통신판매업신고 2016-서울서초-1232</p>
+        <p>주소 경기도 화성시 팔탄면 포승향남로 2988</p>
+        <br /><br />
+        <p class="copyright">Copyright © 2016 서울번드. All rights reserved.</p>
+      </div>
+    </footer>
+    <footer class="pc_footer">
+      <div class="pc_footer_top">
+        <div>
+          <div class="pc_support">
+            <span class="pc_footer_title">고객지원센터</span>
+            <p>070-4409-0689</p>
+          </div>
+          <div>
+            <p>
+              영업시간<br />
+              월-금<br />
+              오전 10:00 ~ 오후 17:00 / 주말,공휴일 쉼<br />
+              점심시간<br />
+              12:30 ~ 13:30
+            </p>
+            <br />
+          </div>
+
+          <div>
+            <span>계좌 안내</span>
+            <p>우리은행 1005-203-836992</p>
+            <br />
+            <span>예금주 (주)서울번드</span>
+          </div>
+        </div>
+        <div>
+          <span class="pc_footer_title">쇼핑 가이드</span>
+          <ul class="pc_shopping_guide">
+            <li><a href="#!">공지사항</a></li>
+            <li><a href="#!">상품문의</a></li>
+            <li><a href="#!">구매후기</a></li>
+            <li><a href="#!">주문조회</a></li>
+          </ul>
+        </div>
+        <div>
+          <span class="pc_footer_title">배송/반품지원센터</span>
+          <p>반품: 서울시 서초구 서리풀4길 준빌딩 1층</p>
+          <p>
+            택배: 롯데택배 1588-2121 (월-금 08:00 ~ 18:00 / 토 09:00 ~ 13:00)
+          </p>
+          <div class="ship_btns">
+            <a href="#"><div>롯데택배</div></a>
+            <a href="#"><div>상품문의</div></a>
+            <a href="#"><div>고객센터</div></a>
+          </div>
+
+          <div class="pc_footer_sns">
+            <span class="pc_footer_title">SNS</span>
+            <div>
+              <a href="#!"><img src="./img/insta_black.png" alt="" /></a>
+              <a href="#!"><img src="./img/facebook_black.png" alt="" /></a>
+              <a href="#!"><img src="./img/blog_black.png" alt="" /></a>
+              <a href="#!"><img src="./img/pinterest_black.png" alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pc_footer_bottom">
+        <div class="pc_footer_inner">
+          <div class="pc_footer_logo">
+            <span>
+              <img src="./img/tight_logo_white.png" alt="" />
+            </span>
+          </div>
+          <div class="footer_company_info">
+            <p>회사정보</p>
+            <p>회사: 주식회사 서울번드 대표: 박찬호</p>
+            <p>사업자 등록번호: [472-87-00375]</p>
+            <br />
+            <p>통신판매업신고 2016-서울서초-1232</p>
+            <p>주소 경기도 화성시 팔탄면 포승향남로 2988</p>
+            <br /><br />
+            <p class="copyright">
+              Copyright © 2016 서울번드. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/common.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
