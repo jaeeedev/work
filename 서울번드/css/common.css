@@ -222,7 +222,7 @@ button {
 }
 
 .store_input:checked ~ .store .depth_2 {
-  height: 870px;
+  height: fit-content;
 }
 
 .store_input:checked ~ .store .sub_exist_icon.on {
@@ -236,6 +236,95 @@ button {
   height: 100px;
   overflow: hidden;
   transition: height 0.5s;
+}
+
+.side_bar .close_box {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+.side_bar .close_box span {
+  cursor: pointer;
+}
+
+.side_bar .depth_3 {
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  transition: none;
+}
+
+.d2_title_box {
+  display: flex;
+  gap: 5px;
+}
+
+.depth_2 .fa-minus {
+  display: none;
+}
+
+.side_bar .depth_3 {
+  transition: all 0.4s;
+}
+
+.depth2_cb:checked ~ .depth_3 {
+  height: 135px;
+  padding: 0 10px;
+}
+
+.depth2_cb:checked ~ .d2_title_box .fa-plus {
+  display: none;
+}
+.depth2_cb:checked ~ .d2_title_box .fa-minus {
+  display: block;
+}
+
+.depth2_cb_1:checked ~ .depth_3 {
+  height: 135px;
+  padding: 0 10px;
+}
+
+.depth2_cb_1:checked ~ .d2_title_box .fa-plus {
+  display: none;
+}
+.depth2_cb_1:checked ~ .d2_title_box .fa-minus {
+  display: block;
+}
+.depth2_cb_2:checked ~ .depth_3 {
+  height: 110px;
+  padding: 0 10px;
+}
+
+.depth2_cb_2:checked ~ .d2_title_box .fa-plus {
+  display: none;
+}
+.depth2_cb_2:checked ~ .d2_title_box .fa-minus {
+  display: block;
+}
+.depth2_cb_3:checked ~ .depth_3 {
+  height: 110px;
+  padding: 0 10px;
+}
+
+.depth2_cb_3:checked ~ .d2_title_box .fa-plus {
+  display: none;
+}
+.depth2_cb_3:checked ~ .d2_title_box .fa-minus {
+  display: block;
+}
+.depth2_cb_4:checked ~ .depth_3 {
+  height: 85px;
+  padding: 0 10px;
+}
+
+.depth2_cb_4:checked ~ .d2_title_box .fa-plus {
+  display: none;
+}
+.depth2_cb_4:checked ~ .d2_title_box .fa-minus {
+  display: block;
 }
 
 /* pc 피시 헤더 */

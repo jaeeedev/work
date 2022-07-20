@@ -1,4 +1,5 @@
 let reviewData = [];
+let rvImgArr = [];
 
 async function init() {
   await fetchReview();
@@ -252,25 +253,45 @@ openReview.addEventListener("click", () => {
 const fileInput = document.querySelector(".file_input");
 fileInput.addEventListener("change", (e) => {
   addFile(e.target);
+  setTimeout(() => {
+    rvImgArr = [...document.querySelectorAll(".preview")].map((img) => img.src);
+    console.log(rvImgArr);
+  }, 300);
+
+  //미리보기 요소 생성 후에 실행되도록 지연
 });
 
-//일차수정
-
 function addFile(input) {
-  if (input.files) {
-    const reader = new FileReader();
-    reader.readAsDataURL(input.files[0]);
-    reader.onload = function (e) {
-      document.querySelector(
-        ".thumbnail_box"
-      ).innerHTML = `<img class="preview" alt="" src="" />`;
+  const fileBox = document.querySelector(".thumbnail_box");
 
-      document.querySelector(".preview").src = e.target.result;
-    };
-  } else {
-    document.querySelector(".preview").src = "";
+  const prevThumbnails = document.querySelectorAll(".thumbnail_box img");
+  for (let img of prevThumbnails) {
+    img.remove();
+  } //
+
+  if (input.files) {
+    const fileArr = [...input.files];
+
+    if (input.files.length > 3) {
+      alert("사진이 너무 많습니다. 최대 3개까지 입력해주세요.");
+      return;
+    }
+
+    fileArr.forEach((file) => {
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        const img = document.createElement("img");
+        img.classList.add("preview");
+        img.src = e.target.result;
+        fileBox.appendChild(img);
+      };
+
+      reader.readAsDataURL(file);
+    });
   }
 }
+
 const star = document.querySelector(".star");
 let starRate = 0;
 
@@ -304,66 +325,91 @@ function clearInput() {
   starRate = 0;
   star.textContent = "☆☆☆☆☆";
   location.reload();
+  // setTimeout(() => {
+  // }, 500);
 }
 
-reviewArea.addEventListener("submit", async (e) => {
+reviewArea.addEventListener("submit", (e) => {
+  e.preventDefault();
   if (star.textContent === "☆☆☆☆☆") {
     alert("별점을 입력해주세요.");
     e.preventDefault();
     return;
   }
-
-  await fetchData();
-  await fetchReview();
-  writeReview();
-  clearInput();
+  fetchData();
+  setTimeout(() => {
+    clearInput();
+  }, 800);
 });
 
-async function fetchData() {
+function fetchData() {
   let today = new Date();
   let year = today.getFullYear(); // 년도
   let month = today.getMonth() + 1; // 월
   let date = today.getDate(); // 날짜
   const writeDate = year + "/" + month + "/" + date;
-  console.log(writeDate);
 
-  const reviewText = document.querySelector(".review_write_text");
+  const reviewText = document.querySelector(".review_write_text").value;
   const writerName = document.querySelector(".writer_input").value;
 
+  console.log(writeDate);
+  console.log(reviewText);
+  console.log(writerName);
+
   if (document.querySelector(".file_input").value) {
-    await fetch("https://bund-16445-default-rtdb.firebaseio.com/orders.json", {
-      method: "POST",
-      body: JSON.stringify({
-        imgSrc: document.querySelector(".preview").src,
-        star: starRate,
-        date: writeDate,
-        text: reviewText.value,
-        writer: writerName,
-      }),
-    });
+    try {
+      fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
+        method: "POST",
+        body: JSON.stringify({
+          imgSrc: rvImgArr,
+          star: starRate,
+          date: writeDate,
+          text: reviewText,
+          writer: writerName,
+        }),
+      });
+    } catch (e) {
+      console.log(e);
+    }
   } else {
-    await fetch("https://bund-16445-default-rtdb.firebaseio.com/orders.json", {
-      method: "POST",
-      body: JSON.stringify({
-        imgSrc: null,
-        star: starRate,
-        date: writeDate,
-        text: reviewText.value,
-        writer: writerName,
-      }),
-    });
+    try {
+      fetch("https://shop-aac53-default-rtdb.firebaseio.com/orders.json", {
+        method: "POST",
+        body: JSON.stringify({
+          imgSrc: null,
+          star: starRate,
+          date: writeDate,
+          text: reviewText,
+          writer: writerName,
+        }),
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
 async function fetchReview() {
   const response = await fetch(
-    "https://bund-16445-default-rtdb.firebaseio.com/orders.json"
+    "https://shop-aac53-default-rtdb.firebaseio.com/orders.json"
   );
   reviewData = await response.json();
 }
 
+function getThumbnail(arr) {
+  let content = arr
+    .map((img) => {
+      return `<img src=${img} alt="리뷰 이미지"/>`;
+    })
+    .join("");
+
+  return content;
+}
+
 let reviewArr = [];
 function writeReview() {
+  //반복문으로 객체 돌려서 배열에 넣어주고
+  //그 배열을 다시 큰 문자열로 만들어서 리뷰래퍼 안에 넣어준다
   for (let rv in reviewData) {
     reviewArr.push(reviewData[rv]);
   }
@@ -376,9 +422,11 @@ function writeReview() {
     <span class="writer_name_title">작성자</span
     ><span class="writer_name">${rv.writer}</span>
   </div>
+
   <div class="review_img">
-  ${rv.imgSrc ? ` <img src=${rv.imgSrc} alt="리뷰 이미지" />` : ``}
+  ${rv.imgSrc ? getThumbnail(rv.imgSrc) : ``}
   </div>
+
   <div class="review_text">
     <span class="review_star">${"★".repeat(rv.star)}</span>
     <p>
@@ -409,7 +457,7 @@ function changeBadge() {
   }
   let totalRate = sumRate / reviewArr.length;
 
-  rateNumber.textContent = totalRate.toFixed(1);
+  rateNumber.textContent = isNaN(totalRate) ? 0 : totalRate.toFixed(1);
 }
 
 //리뷰 필터
@@ -438,6 +486,7 @@ showImgBtn.addEventListener("click", () => {
     }
   }
 });
+
 const topBtn = document.querySelector(".topBtn");
 topBtn.addEventListener("click", () => {
   window.scrollTo({
@@ -447,15 +496,12 @@ topBtn.addEventListener("click", () => {
 });
 
 async function fetchToCart() {
-  const response = await fetch(
-    "https://bund-16445-default-rtdb.firebaseio.com/cart.json",
-    {
-      method: "PUT",
-      body: JSON.stringify({
-        items: orderOptions,
-      }),
-    }
-  );
+  fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
+    method: "PUT",
+    body: JSON.stringify({
+      items: orderOptions,
+    }),
+  });
 }
 
 //상품 문의 모양만

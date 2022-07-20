@@ -6,6 +6,13 @@ background.addEventListener("click", (e) => {
   input.click();
 });
 
+const sideCloseBtn = document.querySelector(".side_bar .close_box span");
+
+sideCloseBtn.addEventListener("click", () => {
+  const input = document.querySelector(".side_btn");
+  input.click();
+});
+
 //pc헤더
 const lnbLists = document.querySelectorAll(".category");
 

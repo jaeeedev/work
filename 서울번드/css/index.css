@@ -116,6 +116,8 @@ body {
 /* 프로모션 */
 
 .promotion {
+  max-width: 700px;
+  margin: 0 auto;
   margin-bottom: 130px;
 }
 
@@ -329,7 +331,7 @@ body {
 
 .mobile_project h2 {
   position: absolute;
-  z-index: 11;
+  z-index: 3;
   top: 30px;
   width: 100%;
   text-align: center;
@@ -598,6 +600,8 @@ body {
   border-bottom: 1px solid #999;
 }
 .category_title {
+  display: inline-block;
+  margin-top: 5px;
   font-weight: 700;
   font-size: 11px;
 }
@@ -764,6 +768,23 @@ body {
   }
   .rv_content:last-child {
     display: none;
+  }
+
+  .worktime,
+  .support {
+    font-size: 14px;
+  }
+
+  .footer .worktime p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .footer .support a {
+    font-size: 13px;
+  }
+
+  .footer .footer_sns {
+    gap: 15px;
   }
 }
 @media all and (min-width: 769px) {
@@ -1083,6 +1104,11 @@ body {
   .promotion .swiper-button-prev::after,
   .promotion .swiper-button-next::after {
     font-size: 32px;
+  }
+
+  .promotion {
+    max-width: 1260px;
+    width: 100%;
   }
 }
 @media all and (min-width: 1261px) {

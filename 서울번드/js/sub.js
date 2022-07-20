@@ -12,7 +12,6 @@ async function init() {
   boxEventHandler();
   checkAll();
   drawTotal();
-  // memorize();
 }
 
 init();
@@ -97,6 +96,7 @@ function checkAll() {
       bingoCount = allInputs.length;
     } else {
       allInputs.forEach((input) => (input.checked = false));
+      bingoCount = 0;
       pdSum = 0;
       drawTotal();
     }
@@ -114,6 +114,7 @@ function boxEventHandler() {
       let amount = box.querySelector(".product_quantity");
       let price = box.querySelector(".product_price");
       const checkbox = box.querySelector(".item_check");
+      const cbs = document.querySelectorAll(".item_check");
 
       const delBtn = box.querySelector(".cancel i");
 
@@ -148,14 +149,21 @@ function boxEventHandler() {
         if (checkbox.checked) {
           pdSum += localData[i].count * localData[i].price;
           bingoCount++;
+          if (bingoCount === cbs.length) {
+            document.querySelector("#check_all").checked = true;
+          }
         } else {
           pdSum -= localData[i].count * localData[i].price;
           bingoCount--;
+          if (bingoCount !== cbs.length) {
+            document.querySelector("#check_all").checked = false;
+          }
         }
         drawTotal();
       }
     })
   );
+  memorize();
 }
 
 function drawTotal() {
@@ -169,18 +177,27 @@ function drawTotal() {
 
 function deleteItem(index) {
   localData.splice(index, 1);
+  pdSum = 0;
   drawCart();
+  document.querySelector("#check_all").checked = false;
   drawTotal();
   boxEventHandler(); //이벤트리스너 풀려서 다시 설정
+  memorize();
 }
 
-// function memorize() {
-//   window.addEventListener("beforeunload", () => {
-//     fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
-//       method: "PUT",
-//       body: JSON.stringify({
-//         items: localData,
-//       }),
-//     });
-//   });
-// }
+//장바구니 변경사항 저장
+function memorize() {
+  window.addEventListener("beforeunload", () => {
+    fetch("https://shop-aac53-default-rtdb.firebaseio.com/cart.json", {
+      method: "PUT",
+      body: JSON.stringify({
+        items: localData,
+      }),
+    });
+  });
+}
+
+window.addEventListener("beforeunload", (event) => {
+  event.preventDefault();
+  event.returnValue = "";
+});
